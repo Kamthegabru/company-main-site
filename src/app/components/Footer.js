@@ -141,9 +141,9 @@ Portland, OR 97210
         </div>
         <div className="md:text-right">
           <ul className="footer-nav justify-center md:justify-end">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#what">Services</a></li>
+            <li><a href="/privacy-policy">Privay</a></li>
           </ul>
         </div>
       </div>

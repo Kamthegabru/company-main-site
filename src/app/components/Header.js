@@ -51,12 +51,13 @@ export default function HeroHeader() {
     <main className="bg-white text-[#0A2C4A] font-[Poppins,sans-serif]">
       {/* Top Info Bar */}
       <div className="w-full bg-[#0B4D8F] text-white text-sm">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex h-10 flex-col items-center justify-between md:flex-row">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+          <div className="flex h-10 items-center justify-between">
             <div className="flex items-center gap-4">
               <a href="tel:+12065717659" className="opacity-90 hover:opacity-100">
                 (206)571-7659
               </a>
+              {/* Hide long email on very small screens */}
               <span className="hidden h-3 w-px bg-white/30 md:inline" />
               <a
                 href="mailto:info@seatechconsulting.com"
@@ -65,6 +66,7 @@ export default function HeroHeader() {
                 info@seatechconsulting.com
               </a>
             </div>
+            {/* Long address only on md+ */}
             <div className="hidden items-center gap-4 opacity-90 md:flex">
               <span>3055 NW YEON AVE UNTT#271 Portland, OR 97210</span>
               <span className="h-3 w-px bg-white/30" />
@@ -76,10 +78,10 @@ export default function HeroHeader() {
 
       {/* Header */}
       <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex h-20 items-center justify-between gap-6">
-            {/* Logo */}
-            <Link href="/" className="flex w-[140px] select-none items-center gap-3">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+          <div className="flex h-16 sm:h-20 items-center justify-between gap-3 sm:gap-6">
+            {/* Logo (shrinks on small screens) */}
+            <Link href="/" className="flex w-[70px] sm:w-[100px] select-none items-center">
               <img
                 src="https://seatechconsulting.com/Images/logo.png"
                 alt="SeaTech Consulting"
@@ -89,7 +91,7 @@ export default function HeroHeader() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:block">
-              <ul className="flex items-center gap-7 text-[15px] font-[Open_Sans,sans-serif]">
+              <ul className="flex items-center gap-6 xl:gap-7 text-[15px] font-[Open_Sans,sans-serif]">
                 <li>
                   <Link
                     href="/"
@@ -98,6 +100,7 @@ export default function HeroHeader() {
                     HOME
                   </Link>
                 </li>
+
                 <li>
                   <a
                     href="#about"
@@ -122,6 +125,7 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
+
                   <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
                     <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
                     <ul className="py-2">
@@ -154,6 +158,7 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
+
                   <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
                     <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
                     <ul className="py-2">
@@ -182,8 +187,8 @@ export default function HeroHeader() {
               </ul>
             </nav>
 
-            {/* Right side */}
-            <div className="flex items-center gap-4">
+            {/* Right: burger + CTA */}
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
@@ -199,7 +204,7 @@ export default function HeroHeader() {
 
               <Link
                 href="/contact"
-                className="hidden items-center rounded-md bg-[#0B4D8F] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110 sm:inline-flex"
+                className="hidden sm:inline-flex items-center rounded-md bg-[#0B4D8F] px-3 sm:px-4 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110"
               >
                 Contact Us
               </Link>
@@ -207,31 +212,37 @@ export default function HeroHeader() {
           </div>
         </div>
 
-        {/* Mobile Drawer (mounted outside any pointer-events-none) */}
+        {/* Mobile Drawer */}
         <div className="lg:hidden">
           {/* Overlay */}
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-hidden={!open}
-            className={`fixed inset-0 z-[49] bg-black/40 transition-opacity ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+            className={`fixed inset-0 z-[49] bg-black/40 transition-opacity ${
+              open ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
           />
           {/* Panel */}
           <aside
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            className={`fixed right-0 top-0 z-[50] h-screen w-[86vw] max-w-[380px] bg-white shadow-2xl border-l border-gray-100 transition-transform duration-300 ease-out overscroll-contain ${
+            className={`fixed right-0 top-0 z-[50] h-[100dvh] w-[88vw] max-w-[380px] bg-white shadow-2xl border-l border-gray-100 transition-transform duration-300 ease-out overscroll-contain ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
+            style={{
+              paddingBottom: "env(safe-area-inset-bottom)",
+              paddingTop: "env(safe-area-inset-top)",
+            }}
           >
             {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b">
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b">
               <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
                 <img
                   src="https://seatechconsulting.com/Images/logo.png"
                   alt="SeaTech Consulting"
-                  className="h-auto w-[140px]"
+                  className="h-8 w-auto"
                 />
               </Link>
               <button
@@ -251,8 +262,9 @@ export default function HeroHeader() {
             </div>
 
             {/* Drawer Body */}
-            <nav className="px-4 py-4 overflow-y-auto h-[calc(100vh-64px)]">
+            <nav className="px-4 py-4 overflow-y-auto h-[calc(100dvh-60px)]">
               <ul className="space-y-1 text-[15px] font-[Open_Sans,sans-serif]">
+                {/* HOME */}
                 <li>
                   <Link
                     href="/"
@@ -263,6 +275,7 @@ export default function HeroHeader() {
                   </Link>
                 </li>
 
+                {/* ABOUT */}
                 <li>
                   <a
                     href="#about"
@@ -359,6 +372,7 @@ export default function HeroHeader() {
                   </div>
                 </li>
 
+                {/* WHAT WE DO */}
                 <li>
                   <a
                     href="#what"

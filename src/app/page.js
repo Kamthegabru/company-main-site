@@ -3,59 +3,22 @@ import TechIndexHero from "./components/TechIndexHero";
 import HeroHeader from "./components/Header";
 import ClientSpotlight from "./components/ClientSpotlight";
 import Footer from "./components/Footer";
+import HeroSlider from "./components/Hero";
 
 export default function Home() {
   return (
     <>
        {/* --- Hero --- */}
-     <section className="hero h-[100vh] w-full">
-  {/* pattern overlays (network images) */}
-  <img
-    src="https://expert-themes.com/html/globex/images/main-slider/pattern-1.png"
-    alt=""
-    className="pattern-left"
-  />
-  <img
-    src="https://expert-themes.com/html/globex/images/main-slider/pattern-2.png"
-    alt=""
-    className="pattern-right"
-  />
+       <HeroSlider />
+   
 
-  {/* content */}
-  <div className="mx-auto max-w-[1200px] px-6 hero-inner">
-    <div className="max-w-[760px]">
-      <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
-        Driving Digital <span className="text-[#F9B233]">Transformation</span>
-      </h1>
 
-      <p className="mt-5 max-w-2xl text-base sm:text-lg text-white/90 font-[Open_Sans,sans-serif]">
-        Empowering businesses with innovative web solutions, digital strategy,
-        and technology excellence.
-      </p>
-
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
-        <a
-          href="/contact"
-          className="inline-flex items-center justify-center rounded-md bg-[#F9B233] px-7 py-3 font-semibold text-[#0B4D8F] shadow-md transition hover:brightness-110"
-        >
-          Get Started
-        </a>
-        <a
-          href="#about"
-          className="inline-flex items-center justify-center rounded-md border-2 border-white px-7 py-3 font-semibold text-white transition hover:bg-white hover:text-[#0B4D8F]"
-        >
-          Learn More
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
       <section id="about" className="about-wrap py-16 bg-white lg:py-24">
   <div className="mx-auto max-w-[1200px] px-6">
     {/* Title */}
     <div className="mb-8">
       <div className="text-[13px] font-bold tracking-[.12em] text-[#0B4D8F]">
-        ABOUT COMPANY
+        ABOUT COMPANY 
       </div>
       <h2 className="mt-3 text-[34px] sm:text-[42px] md:text-[46px] font-bold leading-tight text-[#0A2C4A]">
         You Can not Use Up <br className="hidden sm:block" /> Creativity.
