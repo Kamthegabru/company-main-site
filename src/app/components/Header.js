@@ -102,12 +102,12 @@ export default function HeroHeader() {
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#about"
                     className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
                   >
                     ABOUT
-                  </a>
+                  </Link>
                 </li>
 
                 {/* COMPANIES */}
@@ -177,12 +177,12 @@ export default function HeroHeader() {
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#what"
                     className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
                   >
                     WHAT WE DO
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -277,13 +277,13 @@ export default function HeroHeader() {
 
                 {/* ABOUT */}
                 <li>
-                  <a
+                  <Link
                     href="#about"
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
                   >
                     ABOUT
-                  </a>
+                  </Link>
                 </li>
 
                 {/* COMPANIES */}
@@ -374,13 +374,13 @@ export default function HeroHeader() {
 
                 {/* WHAT WE DO */}
                 <li>
-                  <a
+                  <Link
                     href="#what"
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
                   >
                     WHAT WE DO
-                  </a>
+                  </Link>
                 </li>
 
                 {/* CTA */}
@@ -401,16 +401,16 @@ export default function HeroHeader() {
                     <p>3055 NW YEON AVE UNTT#271</p>
                     <p>Portland, OR 97210</p>
                     <div className="mt-2 flex items-center gap-3">
-                      <a href="tel:+12065717659" className="underline decoration-dotted hover:text-[#0B4D8F]">
+                      <Link href="tel:+12065717659" className="underline decoration-dotted hover:text-[#0B4D8F]">
                         (206)571-7659
-                      </a>
+                      </Link>
                       <span className="h-3 w-px bg-gray-200" />
-                      <a
+                      <Link
                         className="underline decoration-dotted hover:text-[#0B4D8F]"
                         href="mailto:info@seatechconsulting.com"
                       >
                         info@seatechconsulting.com
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </li>

@@ -4,6 +4,7 @@ import HeroHeader from "./components/Header";
 import ClientSpotlight from "./components/ClientSpotlight";
 import Footer from "./components/Footer";
 import HeroSlider from "./components/Hero";
+import { Link } from "lucide-react";
 
 export default function Home() {
   return (
@@ -75,7 +76,7 @@ export default function Home() {
 
         {/* Intro Video button */}
         <div className="mt-8">
-          <a
+          <Link
             href="/contact"
             className="btn-intro"
             target="_blank"
@@ -86,8 +87,8 @@ export default function Home() {
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            Contact Us"   "
-          </a>
+            Contact Us
+          </Link>
         </div>
 
 
@@ -226,18 +227,18 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">IT Soluations</a>
+          <Link href="#" className="hover:underline">IT Solutions</Link>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
+        <Link href="#" className="svc-arrow" aria-label="Read more">
           {/* long arrow */}
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </a>
+        </Link>
       </article>
 
       {/* Card 2 */}
@@ -250,17 +251,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">Security System</a>
+          <Link href="#" className="hover:underline">Security System</Link>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
+        <Link href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </a>
+        </Link>
       </article>
 
       {/* Card 3 */}
@@ -272,17 +273,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">Web Development</a>
+          <Link href="#" className="hover:underline">Web Development</Link>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
+        <Link href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </a>
+        </Link>
       </article>
 
       {/* Card 4 */}
@@ -295,17 +296,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">App Development</a>
+          <Link href="#" className="hover:underline">App Development</Link>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
+        <Link href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </a>
+        </Link>
       </article>
     </div>
   </div>

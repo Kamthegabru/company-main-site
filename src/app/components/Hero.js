@@ -227,12 +227,12 @@ useEffect(() => {
                   >
                     Get Started
                   </Link>
-                  <a
+                  <Link
                     href="#about"
                     className="inline-flex items-center justify-center rounded-md border-2 border-white px-7 py-3 font-semibold text-white transition hover:bg-white hover:text-[#0B4D8F]"
                   >
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
