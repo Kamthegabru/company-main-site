@@ -411,8 +411,9 @@ export default function Home() {
          Digital marketing
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          With a keen understanding of what's happening in the digital landscape, we leverage the power of marketing platforms to connect audiences with contagious content
-        </p>
+  With a keen understanding of what&#39;s happening in the digital landscape, we leverage the power of marketing platforms to connect audiences with contagious content.
+</p>
+
       </article>
 
       {/* 5. IT Consultancy */}
