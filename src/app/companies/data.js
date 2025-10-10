@@ -19,7 +19,7 @@ export const companies = [
   {
     slug: "order-xperts",
     name: "Order-Xperts",
-    url: "https://seatechconsulting.com/orderxperts",
+    url: "https://order-xperts.com/",
     icon: "https://seatechconsulting.com/Images/Xperts%20Restaurant/OrderXpert%20Logo.png",
     tagline: "0% commissions online ordering for restaurants.",
     summary:
@@ -29,7 +29,7 @@ export const companies = [
   {
     slug: "astra-branding",
     name: "Astra — Brand & Creative",
-    url: "https://seatechconsulting.com/#branding",
+    url: "https://www.astra.co.id/",
     icon: "https://seatechconsulting.com/Images/logo_astra-international.png",
     tagline: "Strategy-led branding that drives growth.",
     summary:

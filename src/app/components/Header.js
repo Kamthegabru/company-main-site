@@ -10,6 +10,7 @@ export default function HeroHeader() {
   const [open, setOpen] = useState(false);
   const [openCompanies, setOpenCompanies] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
+  const panelRef = useRef(null);
   const closeBtnRef = useRef(null);
   const pathname = usePathname();
 
@@ -21,17 +22,49 @@ export default function HeroHeader() {
     setOpenProjects(false);
   }, [pathname]);
 
-  // ESC + body scroll lock
+  // Close menu if viewport jumps to desktop while open
   useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const onResize = () => {
+      if (window.innerWidth >= 1024 && open) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [open]);
+
+  // ESC + body scroll lock + focus trap
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+      if (!open || !panelRef.current) return;
+
+      // Simple focus trap
+      if (e.key === "Tab") {
+        const focusables = panelRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+
+        if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
     if (open) {
       document.addEventListener("keydown", onKey);
-      const prev = document.body.style.overflow;
+      const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       requestAnimationFrame(() => closeBtnRef.current?.focus());
       return () => {
         document.removeEventListener("keydown", onKey);
-        document.body.style.overflow = prev;
+        document.body.style.overflow = prevOverflow;
       };
     }
   }, [open]);
@@ -57,7 +90,6 @@ export default function HeroHeader() {
               <a href="tel:+12065717659" className="opacity-90 hover:opacity-100">
                 (206)571-7659
               </a>
-              {/* Hide long email on very small screens */}
               <span className="hidden h-3 w-px bg-white/30 md:inline" />
               <a
                 href="mailto:info@seatechconsulting.com"
@@ -66,7 +98,6 @@ export default function HeroHeader() {
                 info@seatechconsulting.com
               </a>
             </div>
-            {/* Long address only on md+ */}
             <div className="hidden items-center gap-4 opacity-90 md:flex">
               <span>3055 NW YEON AVE UNTT#271 Portland, OR 97210</span>
               <span className="h-3 w-px bg-white/30" />
@@ -80,7 +111,7 @@ export default function HeroHeader() {
       <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
           <div className="flex h-16 sm:h-20 items-center justify-between gap-3 sm:gap-6">
-            {/* Logo (shrinks on small screens) */}
+            {/* Logo */}
             <Link href="/" className="flex w-[70px] sm:w-[100px] select-none items-center">
               <img
                 src="https://seatechconsulting.com/Images/logo.png"
@@ -100,7 +131,6 @@ export default function HeroHeader() {
                     HOME
                   </Link>
                 </li>
-
                 <li>
                   <Link
                     href="#about"
@@ -125,7 +155,6 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
-
                   <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
                     <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
                     <ul className="py-2">
@@ -158,7 +187,6 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
-
                   <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
                     <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
                     <ul className="py-2">
@@ -192,11 +220,12 @@ export default function HeroHeader() {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/[0.06] lg:hidden"
                 aria-label="Open menu"
                 aria-expanded={open}
                 aria-controls="mobile-menu"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/[0.06] lg:hidden"
               >
+                {/* Burger -> X animation via aria-expanded would need extra CSS; keep simple icon */}
                 <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#0A2C4A]">
                   <path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z" />
                 </svg>
@@ -212,33 +241,35 @@ export default function HeroHeader() {
           </div>
         </div>
 
-        {/* Mobile Drawer */}
+        {/* MOBILE DIALOG (Pro-style full-viewport top sheet) */}
         <div className="lg:hidden">
           {/* Overlay */}
-          <button
-            type="button"
+          <div
             onClick={() => setOpen(false)}
-            aria-hidden={!open}
-            className={`fixed inset-0 z-[49] bg-black/40 transition-opacity ${
-              open ? "opacity-100" : "pointer-events-none opacity-0"
+            className={`fixed inset-0 z-[60] bg-black/50 transition-opacity ${
+              open ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           />
+
           {/* Panel */}
-          <aside
+          <section
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            className={`fixed right-0 top-0 z-[50] h-[100dvh] w-[88vw] max-w-[380px] bg-white shadow-2xl border-l border-gray-100 transition-transform duration-300 ease-out overscroll-contain ${
-              open ? "translate-x-0" : "translate-x-full"
+            aria-label="Mobile navigation"
+            ref={panelRef}
+            className={`fixed inset-x-0 top-0 z-[70] origin-top bg-white shadow-2xl transition-transform duration-300 ease-out ${
+              open ? "translate-y-0" : "-translate-y-full"
             }`}
             style={{
-              paddingBottom: "env(safe-area-inset-bottom)",
+              height: "100dvh",
               paddingTop: "env(safe-area-inset-top)",
+              paddingBottom: "env(safe-area-inset-bottom)",
             }}
           >
-            {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b">
-              <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b">
+              <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
                 <img
                   src="https://seatechconsulting.com/Images/logo.png"
                   alt="SeaTech Consulting"
@@ -261,10 +292,9 @@ export default function HeroHeader() {
               </button>
             </div>
 
-            {/* Drawer Body */}
-            <nav className="px-4 py-4 overflow-y-auto h-[calc(100dvh-60px)]">
+            {/* Body (independent scroll, prevents overlay cut-off) */}
+            <nav className="px-4 py-4 h-[calc(100dvh-64px- env(safe-area-inset-top))] overflow-y-auto">
               <ul className="space-y-1 text-[15px] font-[Open_Sans,sans-serif]">
-                {/* HOME */}
                 <li>
                   <Link
                     href="/"
@@ -275,7 +305,6 @@ export default function HeroHeader() {
                   </Link>
                 </li>
 
-                {/* ABOUT */}
                 <li>
                   <Link
                     href="#about"
@@ -290,7 +319,7 @@ export default function HeroHeader() {
                 <li>
                   <button
                     type="button"
-                    onClick={() => setOpenCompanies(!openCompanies)}
+                    onClick={() => setOpenCompanies((s) => !s)}
                     className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
                     aria-expanded={openCompanies}
                     aria-controls="mobile-companies"
@@ -333,7 +362,7 @@ export default function HeroHeader() {
                 <li>
                   <button
                     type="button"
-                    onClick={() => setOpenProjects(!openProjects)}
+                    onClick={() => setOpenProjects((s) => !s)}
                     className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
                     aria-expanded={openProjects}
                     aria-controls="mobile-projects"
@@ -372,7 +401,6 @@ export default function HeroHeader() {
                   </div>
                 </li>
 
-                {/* WHAT WE DO */}
                 <li>
                   <Link
                     href="#what"
@@ -416,7 +444,7 @@ export default function HeroHeader() {
                 </li>
               </ul>
             </nav>
-          </aside>
+          </section>
         </div>
       </header>
     </main>

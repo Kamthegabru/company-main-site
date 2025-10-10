@@ -1,7 +1,6 @@
 // app/contact/page.jsx
 "use client";
 
-import { Link } from "lucide-react";
 import React from "react";
 
 export default function ContactPage() {
@@ -45,9 +44,9 @@ export default function ContactPage() {
           <div className="mt-4 flex justify-center">
             <ul className="flex items-center gap-2 text-sm font-medium text-white/80">
               <li className="capitalize">
-                <Link href="/" className="hover:text-white/95">
+                <a href="/" className="hover:text-white/95">
                   Home
-                </Link>
+                </a>
               </li>
               <li>:</li>
               <li>Contact Us</li>
@@ -76,13 +75,13 @@ export default function ContactPage() {
                 Get a free consultation now. Please fill the form or send us an email
               </span>
               <br className="hidden sm:block" />
-              <Link className="text-[#2467ff] hover:underline" href="mailto:info@seatechconsulting.com">
+              <a className="text-[#2467ff] hover:underline" href="mailto:info@seatechconsulting.com">
                 info@seatechconsulting.com
-              </Link>{" "}
+              </a>{" "}
               <span className="text-[#9aa3b2]">/</span>{" "}
-              <Link className="text-[#2467ff] hover:underline" href="mailto:Order@seatechconsulting.com">
+              <a className="text-[#2467ff] hover:underline" href="mailto:Order@seatechconsulting.com">
                 Order@seatechconsulting.com
-              </Link>
+              </a>
             </p>
           </div>
 

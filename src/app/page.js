@@ -4,7 +4,6 @@ import HeroHeader from "./components/Header";
 import ClientSpotlight from "./components/ClientSpotlight";
 import Footer from "./components/Footer";
 import HeroSlider from "./components/Hero";
-import { Link } from "lucide-react";
 
 export default function Home() {
   return (
@@ -76,7 +75,7 @@ export default function Home() {
 
         {/* Intro Video button */}
         <div className="mt-8">
-          <Link
+          <a
             href="/contact"
             className="btn-intro"
             target="_blank"
@@ -87,8 +86,9 @@ export default function Home() {
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            Contact Us
-          </Link>
+            Contact Us &nbsp; &nbsp;
+
+          </a>
         </div>
 
 
@@ -227,18 +227,18 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <Link href="#" className="hover:underline">IT Solutions</Link>
+          <a href="#" className="hover:underline">IT Soluations</a>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <Link href="#" className="svc-arrow" aria-label="Read more">
+        <a href="#" className="svc-arrow" aria-label="Read more">
           {/* long arrow */}
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </Link>
+        </a>
       </article>
 
       {/* Card 2 */}
@@ -251,17 +251,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <Link href="#" className="hover:underline">Security System</Link>
+          <a href="#" className="hover:underline">Security System</a>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <Link href="#" className="svc-arrow" aria-label="Read more">
+        <a href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </Link>
+        </a>
       </article>
 
       {/* Card 3 */}
@@ -273,17 +273,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <Link href="#" className="hover:underline">Web Development</Link>
+          <a href="#" className="hover:underline">Web Development</a>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <Link href="#" className="svc-arrow" aria-label="Read more">
+        <a href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </Link>
+        </a>
       </article>
 
       {/* Card 4 */}
@@ -296,17 +296,17 @@ export default function Home() {
           </svg>
         </div>
         <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <Link href="#" className="hover:underline">App Development</Link>
+          <a href="#" className="hover:underline">App Development</a>
         </h5>
         <p className="mt-3 text-[14px] leading-6 text-slate-600">
           Sed ut perspiciatis unde omnis iste natus error volup
           validate your ideas.
         </p>
-        <Link href="#" className="svc-arrow" aria-label="Read more">
+        <a href="#" className="svc-arrow" aria-label="Read more">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
-        </Link>
+        </a>
       </article>
     </div>
   </div>
@@ -316,24 +316,22 @@ export default function Home() {
 
 
 
-
-
-<section className="services-two -translate-y-1/5  mt-16">
-  <div className="mx-auto max-w-[1200px] px-6">
+<section className="services-two md:-translate-y-1/5 mt-10 md:mt-16">
+  <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
     {/* BLUE HEADER PANEL */}
-    <div className="services2-head px-6 sm:px-10 py-10 sm:py-12 reveal-up">
-      {/* faint shapes */}
-      <div className="icon-one"></div>
-      <div className="icon-two"></div>
-      <div className="icon-three"></div>
+    <div className="services2-head px-4 sm:px-10 py-8 sm:py-12 reveal-up rounded-xl sm:rounded-[20px]">
+      {/* faint shapes — hide on mobile to reduce clutter */}
+      <div className="hidden sm:block icon-one"></div>
+      <div className="hidden sm:block icon-two"></div>
+      <div className="hidden sm:block icon-three"></div>
 
       {/* title */}
       <div className="relative z-[1] text-center text-white">
-        <div className="text-[12px] sm:text-[13px] font-bold tracking-[.14em] opacity-90">
-         WHAT WE SERVE
+        <div className="text-[11px] sm:text-[13px] font-bold tracking-[.14em] opacity-90">
+          WHAT WE SERVE
         </div>
         <h2
-          className="mt-3 text-[22px] sm:text-[28px] md:text-[32px] lg:text-[34px] font-extrabold leading-snug"
+          className="mt-2 sm:mt-3 text-[20px] sm:text-[28px] md:text-[32px] lg:text-[34px] font-extrabold leading-snug"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           We deal with the aspects of <br className="hidden sm:block" />
@@ -343,17 +341,17 @@ export default function Home() {
     </div>
 
     {/* CARDS (overlap the blue panel) */}
-    <div className="-mt-10 grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-2 lg:grid-cols-3">
+    <div className="-mt-8 sm:-mt-10 grid grid-cols-1 gap-4 sm:gap-7 md:grid-cols-2 lg:grid-cols-3">
       {/* 1. Web Development */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-1">
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-1 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* code window */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="14" rx="1.6"/>
             <path d="M7 10l-3 2 3 2M17 10l3 2-3 2M12 9l-2 6"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
           Web Development
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
@@ -363,16 +361,16 @@ export default function Home() {
       </article>
 
       {/* 2. Mobile Development */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-2">
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-2 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* phone/app */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="7" y="2" width="10" height="20" rx="2"/>
             <circle cx="12" cy="18" r="1.3"/>
             <path d="M9 6h6"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
           Mobile Development
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
@@ -381,80 +379,83 @@ export default function Home() {
         </p>
       </article>
 
-      {/* 3. UI/UX Design */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-3">
+      {/* 3. Branding & identity */}
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-3 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* screen + ruler */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="5" width="18" height="12" rx="1.6"/>
             <path d="M7 9h10M7 13h4"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-         Branding & identity
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+          Branding & identity
         </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-         We fuel the growth of purpose driven brands through strategy activation, design empowerment, and market adoption. From cultivating new ideas to connecting the dots for customers or users, these are our core principles
+        <p className="mt-2 text-[14px] leading-6 text-slate-600 sm:line-clamp-none line-clamp-4">
+          We fuel the growth of purpose driven brands through strategy activation, design empowerment,
+          and market adoption. From cultivating new ideas to connecting the dots for customers or users,
+          these are our core principles
         </p>
       </article>
 
-      {/* 4. QA & Testing */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-1">
+      {/* 4. Digital marketing */}
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-1 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* dashboard/checks */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="8"/>
             <path d="M9 12l2 2 4-4"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-         Digital marketing
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+          Digital marketing
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
-  With a keen understanding of what&#39;s happening in the digital landscape, we leverage the power of marketing platforms to connect audiences with contagious content.
-</p>
-
+          With a keen understanding of what&#39;s happening in the digital landscape, we leverage the
+          power of marketing platforms to connect audiences with contagious content.
+        </p>
       </article>
 
       {/* 5. IT Consultancy */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-2">
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-2 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* monitor/ops */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="5" width="18" height="12" rx="1.6"/>
             <path d="M9 21h6M12 17v4"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
           IT Consultancy
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          Trust our top minds to eliminate workflow pain points, implement new
-          tech, and consolidate app portfolios.
+          Trust our top minds to eliminate workflow pain points, implement new tech, and consolidate
+          app portfolios.
         </p>
       </article>
 
       {/* 6. Dedicated Team */}
-      <article className="svc2-card p-7 sm:p-8 reveal-up reveal-delay-3">
+      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-3 rounded-xl sm:rounded-[14px]">
         <div className="svc2-icon">
           {/* team chart */}
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <circle cx="8" cy="7" r="3"/>
             <circle cx="16" cy="7" r="3"/>
             <path d="M2 20c1.2-3 3.8-5 6-5s4.8 2 6 5M14 12h4a4 4 0 0 1 4 4v4"/>
           </svg>
         </div>
-        <h5 className="mt-4 text-[16px] sm:text-[17px] font-semibold text-[#0A2C4A]">
+        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
           Dedicated Team
         </h5>
         <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          Over the past decade, our customers succeeded by leveraging our process
-          of building, motivating.
+          Over the past decade, our customers succeeded by leveraging our process of building, motivating.
         </p>
       </article>
     </div>
   </div>
 </section>
+
+
 
 
  <TechIndexHero />
