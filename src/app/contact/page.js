@@ -79,10 +79,13 @@ export default function ContactPage() {
               Inquiry:  info@seatechconsulting.com
               </a>{" "}
               <span className="text-[#9aa3b2]">/</span>{" "}
-              <a className="text-[#2467ff] hover:underline" href="mailto:Order@seatechconsulting.com">
+              <a className="text-[#2467ff] hover:underline" href="mailto:support@seatechconsulting.com">
                Tech Support:  support@seatechconsulting.com
               </a>
-              Dev Teams:  Devs@seatechconsulting.com
+              <a className="text-[#2467ff] hover:underline" href="mailto:Devs@seatechconsulting.com">
+                Dev Teams:  Devs@seatechconsulting.com
+              </a>
+             
             </p>
           </div>
 
@@ -138,9 +141,11 @@ export default function ContactPage() {
                 <ul className="leading-7">
                   <li className="font-semibold text-[#0c1b3b]">E-Mail</li>
                   <li className="text-[#656d79]">
-                    info@seatechconsulting.com
+                   Inquiry:  info@seatechconsulting.com
                     <br />
-                    Order@seatechconsulting.com
+                     Tech Support:  support@seatechconsulting.com
+                     <br />
+                     Dev Teams:  Devs@seatechconsulting.com
                   </li>
                 </ul>
               </div>
