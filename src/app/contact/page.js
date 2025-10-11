@@ -76,12 +76,13 @@ export default function ContactPage() {
               </span>
               <br className="hidden sm:block" />
               <a className="text-[#2467ff] hover:underline" href="mailto:info@seatechconsulting.com">
-                info@seatechconsulting.com
+              Inquiry:  info@seatechconsulting.com
               </a>{" "}
               <span className="text-[#9aa3b2]">/</span>{" "}
               <a className="text-[#2467ff] hover:underline" href="mailto:Order@seatechconsulting.com">
-                Order@seatechconsulting.com
+               Tech Support:  support@seatechconsulting.com
               </a>
+              Dev Teams:  Devs@seatechconsulting.com
             </p>
           </div>
 

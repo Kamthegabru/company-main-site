@@ -27,13 +27,14 @@ export const companies = [
     badges: ["SaaS", "Restaurants", "E-commerce"],
   },
   {
-    slug: "astra-branding",
-    name: "Astra — Brand & Creative",
-    url: "https://www.astra.co.id/",
-    icon: "https://seatechconsulting.com/Images/logo_astra-international.png",
-    tagline: "Strategy-led branding that drives growth.",
-    summary:
-      "Positioning, identities, and high-conversion brand systems across digital touchpoints, crafted for clarity and scale.",
-    badges: ["Branding", "Design", "Strategy"],
-  },
+  slug: "amirii-insurance",
+  name: "Amirii Insurance — Commercial & Trucking Coverage",
+  url: "https://amirii-insurance.vercel.app/",
+  icon: "/amirii.webp",
+  tagline: "Protecting what drives your business forward.",
+  summary:
+    "Commercial, trucking, and business insurance solutions tailored for owner-operators and fleets. Amirii Insurance simplifies coverage so you can focus on the road ahead.",
+  badges: ["Insurance", "Trucking", "Commercial Coverage"],
+},
+
 ];

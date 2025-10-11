@@ -95,13 +95,13 @@ export default function HeroHeader() {
                 href="mailto:info@seatechconsulting.com"
                 className="hidden opacity-90 hover:opacity-100 md:inline"
               >
-                info@seatechconsulting.com
+               Inquiry:  info@seatechconsulting.com
               </a>
             </div>
             <div className="hidden items-center gap-4 opacity-90 md:flex">
               <span>3055 NW YEON AVE UNTT#271 Portland, OR 97210</span>
               <span className="h-3 w-px bg-white/30" />
-              <span>order@seatechconsulting.com</span>
+              <span>Dev Teams: Devs@seatechconsulting.com</span>
             </div>
           </div>
         </div>
