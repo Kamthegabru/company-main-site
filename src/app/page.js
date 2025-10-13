@@ -4,6 +4,35 @@ import HeroHeader from "./components/Header";
 import ClientSpotlight from "./components/ClientSpotlight";
 import Footer from "./components/Footer";
 import HeroSlider from "./components/Hero";
+import Link from "next/link";
+
+
+const TEAM = [
+  {
+    name: "Jennifer Garcia",
+    role: "Consultant Officer",
+    img: "https://expert-themes.com/html/globex/images/resource/team-2.jpg",
+    href: "/team",
+  },
+  {
+    name: "Robert Liam",
+    role: "Web Designer",
+    img: "https://expert-themes.com/html/globex/images/resource/team-1.jpg",
+    href: "/team",
+  },
+  {
+    name: "Jassica Ethan",
+    role: "Project Manager",
+    img: "https://expert-themes.com/html/globex/images/resource/team-3.jpg",
+    href: "/team",
+  },
+  {
+    name: "Adaim Mrala",
+    role: "IT Service Officer",
+    img: "https://expert-themes.com/html/globex/images/resource/team-4.jpg",
+    href: "/team",
+  },
+];
 
 export default function Home() {
   return (
@@ -213,102 +242,102 @@ export default function Home() {
         professional IT Services
       </h2>
     </div>
-
-    {/* Cards */}
-    <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-      {/* Card 1 */}
-      <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-        <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-          {/* flaticon-responsive-like icon */}
-          <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-            <rect x="3" y="4" width="12" height="9" rx="1.5"/>
-            <rect x="7" y="16" width="14" height="4" rx="1.5"/>
-            <path d="M9 9h4M10 18h8"/>
-          </svg>
-        </div>
-        <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">IT Soluations</a>
-        </h5>
-        <p className="mt-3 text-[14px] leading-6 text-slate-600">
-          Sed ut perspiciatis unde omnis iste natus error volup
-          validate your ideas.
-        </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
-          {/* long arrow */}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </article>
-
-      {/* Card 2 */}
-      <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-        <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-          {/* flaticon-monitor-like icon */}
-          <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-            <rect x="3" y="4" width="18" height="12" rx="1.8"/>
-            <path d="M9 20h6M12 16v4"/>
-          </svg>
-        </div>
-        <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">Security System</a>
-        </h5>
-        <p className="mt-3 text-[14px] leading-6 text-slate-600">
-          Sed ut perspiciatis unde omnis iste natus error volup
-          validate your ideas.
-        </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </article>
-
-      {/* Card 3 */}
-      <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-        <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-          {/* flaticon-coding-like icon */}
-          <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-            <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 7l-2 10"/>
-          </svg>
-        </div>
-        <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">Web Development</a>
-        </h5>
-        <p className="mt-3 text-[14px] leading-6 text-slate-600">
-          Sed ut perspiciatis unde omnis iste natus error volup
-          validate your ideas.
-        </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </article>
-
-      {/* Card 4 */}
-      <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-        <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-          {/* flaticon-laptop-like icon */}
-          <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-            <rect x="4" y="6" width="16" height="10" rx="1.6"/>
-            <path d="M2 18h20"/>
-          </svg>
-        </div>
-        <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-          <a href="#" className="hover:underline">App Development</a>
-        </h5>
-        <p className="mt-3 text-[14px] leading-6 text-slate-600">
-          Sed ut perspiciatis unde omnis iste natus error volup
-          validate your ideas.
-        </p>
-        <a href="#" className="svc-arrow" aria-label="Read more">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </article>
+{/* Cards */}
+<div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+  {/* Card 1 */}
+  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
+    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
+      {/* flaticon-responsive-like icon */}
+      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
+        <rect x="3" y="4" width="12" height="9" rx="1.5"/>
+        <rect x="7" y="16" width="14" height="4" rx="1.5"/>
+        <path d="M9 9h4M10 18h8"/>
+      </svg>
     </div>
+    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
+      <a href="/ITconsultation" className="hover:underline">IT Solutions</a>
+    </h5>
+    <p className="mt-3 text-[14px] leading-6 text-slate-600">
+      Advisory and hands-on consulting to plan, modernize, and support your stack—cloud,
+      integrations, DevOps and day-to-day IT. Reduce cost, increase uptime, and move faster.
+    </p>
+    <a href="/ITconsultation" className="svc-arrow" aria-label="Read more about IT Solutions">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M5 12h14M13 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </article>
+
+  {/* Card 2 */}
+  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
+    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
+      {/* flaticon-monitor-like icon */}
+      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
+        <rect x="3" y="4" width="18" height="12" rx="1.8"/>
+        <path d="M9 20h6M12 16v4"/>
+      </svg>
+    </div>
+    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
+      <a href="/ITconsultation#security" className="hover:underline">Security System</a>
+    </h5>
+    <p className="mt-3 text-[14px] leading-6 text-slate-600">
+      End-to-end hardening for web, mobile, and infrastructure: IAM, endpoint protection,
+      24/7 monitoring, backups &amp; disaster recovery, and compliance-ready practices.
+    </p>
+    <a href="/ITconsultation#security" className="svc-arrow" aria-label="Read more about Security">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M5 12h14M13 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </article>
+
+  {/* Card 3 */}
+  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
+    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
+      {/* flaticon-coding-like icon */}
+      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
+        <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 7l-2 10"/>
+      </svg>
+    </div>
+    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
+      <a href="/web-development" className="hover:underline">Web Development</a>
+    </h5>
+    <p className="mt-3 text-[14px] leading-6 text-slate-600">
+      High-performance websites and portals in React/Next.js, .NET and PHP with headless CMS.
+      SEO-ready, accessible, responsive, and optimized for conversion and speed.
+    </p>
+    <a href="/web-development" className="svc-arrow" aria-label="Read more about Web Development">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M5 12h14M13 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </article>
+
+  {/* Card 4 */}
+  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
+    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
+      {/* flaticon-laptop-like icon */}
+      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
+        <rect x="4" y="6" width="16" height="10" rx="1.6"/>
+        <path d="M2 18h20"/>
+      </svg>
+    </div>
+    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
+      <a href="/mobile-development" className="hover:underline">App Development</a>
+    </h5>
+    <p className="mt-3 text+[14px] leading-6 text-slate-600">
+      Native iOS/Android and cross-platform apps with React Native/Flutter, secure APIs,
+      analytics, and CI/CD. From MVP to launch and ongoing support.
+    </p>
+    <a href="/mobile-development" className="svc-arrow" aria-label="Read more about App Development">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M5 12h14M13 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </article>
+</div>
+
+  
   </div>
 </section>
 
@@ -461,7 +490,75 @@ export default function Home() {
  <TechIndexHero />
 
 
+<section
+      className="relative bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url(https://expert-themes.com/html/globex/images/background/2.jpg)",
+      }}
+    >
+      <div className="mx-auto max-w-[1200px] px-4 py-14 sm:py-16 md:py-20">
+        {/* Sec Title */}
+        <div className="mb-8 md:mb-12">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            {/* left */}
+            <div className="max-w-[600px]">
+              <div className="text-[12px] font-bold tracking-wide text-[#0B4D8F] uppercase">
+                Our Dedicated Team
+              </div>
+              <h2 className="mt-2 text-3xl font-extrabold leading-tight text-[#0A2C4A] sm:text-4xl md:text-[42px] md:leading-[1.2]">
+                We have Large No <br className="hidden sm:block" />
+                of Expert Team Member
+              </h2>
+            </div>
+            {/* right */}
+            <div className="max-w-[520px] text-[15px] leading-7 text-[#657283] md:text-right">
+              Our goal is to help our companies maintain or achieve best-
+              in-class <br className="hidden md:block" />
+              positions in their respective industries and our team works.
+            </div>
+          </div>
+        </div>
 
+        {/* Team grid */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {TEAM.map((m) => (
+            <article key={m.name} className="group">
+              <div className="relative">
+                {/* image */}
+                <div className="aspect-[4/5] w-full overflow-hidden bg-[#e9e9e9]">
+                  <img
+                    src={m.img}
+                    alt={m.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                </div>
+
+            
+
+                {/* name plate */}
+                <div className="absolute left-4 -bottom-20 right-4">
+                  <div className="rounded-md bg-white shadow-[0_12px_20px_rgba(0,0,0,0.08)]">
+                    <div className="h-[4px] w-full rounded-t-md bg-[#2F6BFF]" />
+                    <div className="px-5 py-4">
+                      <h5 className="text-[18px] font-extrabold text-[#0A2C4A]">
+                        <Link href={m.href}>{m.name}</Link>
+                      </h5>
+                      <div className="mt-1 text-[13px] font-medium text-[#8A95A6]">
+                        {m.role}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* spacer to account for the overhang */}
+              <div className="h-16" />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
 
 <ClientSpotlight speed={28} gap={48} />

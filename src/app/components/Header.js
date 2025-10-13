@@ -6,10 +6,19 @@ import { usePathname } from "next/navigation";
 import { companies } from "@/app/companies/data";
 import { projects } from "@/app/projects/data";
 
+const whatWeDo = [
+  { name: "Branding", href: "/branding" },
+  { name: "Web Development", href: "/web-development" },
+  { name: "App Development", href: "/mobile-development" },
+  { name: "Digital Marketing", href: "/digital-branding" },
+  { name: "IT Consultation", href: "/ITconsultation" },
+];
+
 export default function HeroHeader() {
   const [open, setOpen] = useState(false);
   const [openCompanies, setOpenCompanies] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
+  const [openWhat, setOpenWhat] = useState(false);
   const panelRef = useRef(null);
   const closeBtnRef = useRef(null);
   const pathname = usePathname();
@@ -20,6 +29,7 @@ export default function HeroHeader() {
     setOpen(false);
     setOpenCompanies(false);
     setOpenProjects(false);
+    setOpenWhat(false);
   }, [pathname]);
 
   // Close menu if viewport jumps to desktop while open
@@ -95,7 +105,7 @@ export default function HeroHeader() {
                 href="mailto:info@seatechconsulting.com"
                 className="hidden opacity-90 hover:opacity-100 md:inline"
               >
-               Inquiry:  info@seatechconsulting.com
+                Inquiry: info@seatechconsulting.com
               </a>
             </div>
             <div className="hidden items-center gap-4 opacity-90 md:flex">
@@ -204,13 +214,36 @@ export default function HeroHeader() {
                   </div>
                 </li>
 
-                <li>
-                  <Link
-                    href="#what"
+                {/* WHAT WE DO (desktop dropdown) */}
+                <li className="relative group">
+                  <button
+                    type="button"
                     className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
                   >
                     WHAT WE DO
-                  </Link>
+                    <svg
+                      className="ml-1 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
+                    </svg>
+                  </button>
+                  <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
+                    <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
+                    <ul className="py-2">
+                      {whatWeDo.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -225,7 +258,6 @@ export default function HeroHeader() {
                 aria-controls="mobile-menu"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/[0.06] lg:hidden"
               >
-                {/* Burger -> X animation via aria-expanded would need extra CSS; keep simple icon */}
                 <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#0A2C4A]">
                   <path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z" />
                 </svg>
@@ -241,7 +273,7 @@ export default function HeroHeader() {
           </div>
         </div>
 
-        {/* MOBILE DIALOG (Pro-style full-viewport top sheet) */}
+        {/* MOBILE DIALOG */}
         <div className="lg:hidden">
           {/* Overlay */}
           <div
@@ -292,7 +324,7 @@ export default function HeroHeader() {
               </button>
             </div>
 
-            {/* Body (independent scroll, prevents overlay cut-off) */}
+            {/* Body */}
             <nav className="px-4 py-4 h-[calc(100dvh-64px- env(safe-area-inset-top))] overflow-y-auto">
               <ul className="space-y-1 text-[15px] font-[Open_Sans,sans-serif]">
                 <li>
@@ -315,7 +347,7 @@ export default function HeroHeader() {
                   </Link>
                 </li>
 
-                {/* COMPANIES */}
+                {/* COMPANIES (mobile) */}
                 <li>
                   <button
                     type="button"
@@ -358,7 +390,7 @@ export default function HeroHeader() {
                   </div>
                 </li>
 
-                {/* PROJECTS */}
+                {/* PROJECTS (mobile) */}
                 <li>
                   <button
                     type="button"
@@ -401,14 +433,38 @@ export default function HeroHeader() {
                   </div>
                 </li>
 
+                {/* WHAT WE DO (mobile) */}
                 <li>
-                  <Link
-                    href="#what"
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
+                  <button
+                    type="button"
+                    onClick={() => setOpenWhat((s) => !s)}
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
+                    aria-expanded={openWhat}
+                    aria-controls="mobile-whatwedo"
                   >
-                    WHAT WE DO
-                  </Link>
+                    <span className="flex items-center gap-2">WHAT WE DO</span>
+                    <Chevron open={openWhat} />
+                  </button>
+                  <div
+                    id="mobile-whatwedo"
+                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                      openWhat ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <ul className="mt-1 overflow-hidden rounded-lg border border-gray-100 bg-white">
+                      {whatWeDo.map((item) => (
+                        <li key={item.href} className="border-b last:border-b-0">
+                          <Link
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="block px-4 py-3 text-[14px] hover:bg-[#f7f9fb] hover:text-[#0B4D8F]"
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </li>
 
                 {/* CTA */}

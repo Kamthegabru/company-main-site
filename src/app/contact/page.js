@@ -158,7 +158,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ============ Map (boxed iframe) — exact address ============ */}
       <section className="pb-10">
         <div className="mx-auto w-full max-w-6xl px-4">
           <div className="overflow-hidden rounded-md border border-[#e9edf5] shadow-[0_10px_30px_rgba(16,36,94,0.06)]">
@@ -175,10 +174,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ============ Send Your Message (sends to info@) ============ */}
       <section className="pb-20">
         <div className="mx-auto w-full max-w-6xl px-4">
-          {/* Heading row */}
           <div className="mb-8 sm:mb-10">
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
               <div>
@@ -194,7 +191,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form — Name, Email Address, Message */}
           <form id="contact-form" className="grid grid-cols-1 gap-5" onSubmit={handleSubmit}>
             <div className="flex flex-col md:max-w-[50%]">
               <label className="mb-2 text-sm text-[#0c1b3b]">Name</label>
