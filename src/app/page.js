@@ -698,7 +698,7 @@ export default function Home() {
             {/* icon bubble */}
             <div className="grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-xl bg-slate-50/80 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10 shadow-inner">
               {/* tint icon to theme on hover */}
-              <div className="transition-colors duration-300 group-hover:[&>svg]:stroke-indigo-700 dark:group-hover:[&>svg]:stroke-cyan-400">
+              <div className="transition-colors duration-300 group-hover:[&>svg]:stroke-indigo-700 dark:group-hover:[&>svg]:stroke-cyan-700">
                 {card.icon}
               </div>
             </div>

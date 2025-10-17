@@ -410,32 +410,7 @@ export default function WhatWeBrandingPage() {
         </div>
       </section>
 
-      {/* TOOLING (network logos incl. Laravel) */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-3xl font-bold">Tools we design with</h3>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600 dark:text-slate-300">
-            A modern stack for modern brands.
-          </p>
-          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-            {tools.map((t) => (
-              <li
-                key={t.name}
-                className="rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/60 p-4 flex items-center justify-center"
-                title={t.name}
-              >
-                <Image
-                  src={t.src}
-                  alt={t.name}
-                  width={72}
-                  height={72}
-                  className="h-12 w-auto object-contain"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+  
 
       {/* GALLERY / PROOF */}
       <section className="py-20">
@@ -479,7 +454,7 @@ export default function WhatWeBrandingPage() {
               <p className="mt-2 text-white/80">Tell us your goals. We’ll bring the system, the craft, and the results.</p>
             </div>
             <div className="flex items-end lg:justify-end">
-              <a href="mailto:hello@youragency.com" className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-[1.01]">
+              <a href="/contact" className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-[1.01]">
                 Start your project <ArrowRight className="w-4 h-4" />
               </a>
             </div>
