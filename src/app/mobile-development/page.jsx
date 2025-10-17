@@ -10,7 +10,6 @@ import {
   Layout,
   ShieldCheck,
   Apple,
-  // Android as AndroidIcon,
   Smartphone,
   Shuffle,
   Rocket,
@@ -37,11 +36,15 @@ function SectionTitle({ eyebrow, title, description, center }) {
   return (
     <div className={`${center ? "text-center mx-auto" : ""} max-w-3xl`}>
       {eyebrow && (
-        <span className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-200 dark:bg-slate-900 dark:text-sky-300 dark:ring-slate-700">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white/60 px-3 py-1 text-xs font-semibold text-sky-800 ring-1 ring-slate-200 backdrop-blur dark:bg-slate-900/60 dark:text-sky-300 dark:ring-slate-700">
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
+        <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-slate-200 dark:to-white">
+          {title}
+        </span>
+      </h2>
       {description && (
         <p className="mt-3 text-slate-600 dark:text-slate-300">{description}</p>
       )}
@@ -53,10 +56,10 @@ function Pill({ active, children, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`rounded-full px-4 py-2 text-sm font-medium transition ring-1 ${
+      className={`rounded-full px-4 py-2 text-sm font-medium transition ring-1 shadow-sm ${
         active
-          ? "bg-gradient-to-r from-sky-600 to-blue-700 text-white ring-white/10 shadow-sm"
-          : "bg-white text-slate-700 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700"
+          ? "bg-gradient-to-r from-sky-600 to-blue-700 text-white ring-white/10 shadow-blue-900/20"
+          : "bg-white/80 text-slate-700 ring-slate-200 hover:bg-white dark:bg-slate-900/70 dark:text-slate-200 dark:ring-slate-700"
       }`}
     >
       {children}
@@ -77,8 +80,10 @@ function Bullet({ children }) {
 /* DATA                                 */
 /* ------------------------------------ */
 
+// Hero image updated to be explicitly app development themed (network image)
 const heroBg =
-  "https://images.pexels.com/photos/6078120/pexels-photo-6078120.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"; // phone & code
+  "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"; // phone + code + desk (app dev vibe)
+
 const overviewImg =
   "https://images.pexels.com/photos/4049986/pexels-photo-4049986.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
 
@@ -395,7 +400,8 @@ function PlatformIntro(props) {
             className="object-cover opacity-60"
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-blue-900/40" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(2,6,23,.88),rgba(2,6,23,.7),rgba(30,64,175,.5))]" />
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl" />
         </div>
         <div className="relative z-10 p-8 sm:p-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
@@ -418,7 +424,7 @@ function PlatformIntro(props) {
           {children}
         </div>
         <div className="relative">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
             <Image
               src={sideImage}
               alt={`${title} visual`}
@@ -435,7 +441,10 @@ function PlatformIntro(props) {
 
 function Card({ icon: Icon, k1, k2, body, bullets }) {
   return (
-    <div className="group relative rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl dark:bg-slate-950 dark:ring-slate-800">
+    <div className="group relative rounded-2xl bg-white/80 p-6 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-[2px] hover:shadow-2xl dark:bg-slate-950/80 dark:ring-slate-800">
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(600px_200px_at_var(--x,50%)_-20%,rgba(59,130,246,.15),transparent)]" />
+      </div>
       <div className="absolute inset-x-0 -top-[1px] h-[2px] bg-gradient-to-r from-sky-500 via-blue-600 to-sky-500 opacity-0 transition group-hover:opacity-100" />
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 text-sky-700 dark:bg-slate-900 dark:text-sky-300 dark:ring-slate-700">
@@ -468,6 +477,13 @@ export default function MobileDevelopmentPage() {
   const iosTabKeys = platformDetails.ios.techTabs.map((t) => t.key);
   const [iosTech, setIosTech] = useState(iosTabKeys[0]);
 
+  // spotlight cursor position for cards (pure CSS fallback is already nice)
+  const handleSpotlight = (e) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--x", `${e.clientX - rect.left}px`);
+  };
+
   return (
     <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       {/* HERO */}
@@ -475,13 +491,17 @@ export default function MobileDevelopmentPage() {
         <div className="absolute inset-0">
           <Image
             src={heroBg}
-            alt="Mobile development workspace"
+            alt="App development workspace"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-80"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-blue-900/50" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(2,6,23,.92),rgba(2,6,23,.7),rgba(30,64,175,.5))]" />
+          {/* subtle grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] bg-[size:36px_36px]" />
+          <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-sky-300/20 blur-3xl" />
+          <div className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
@@ -492,10 +512,12 @@ export default function MobileDevelopmentPage() {
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight text-white">
               Become your clients’ go-to for{" "}
-              <span className="text-sky-300">high-end mobile apps</span>—delivered on time, on
-              budget, in scope.
+              <span className="bg-gradient-to-r from-sky-300 via-white to-sky-300 bg-clip-text text-transparent">
+                high-end mobile apps
+              </span>
+              —delivered on time, on budget, in scope.
             </h1>
-            <p className="mt-4 text-white/80">
+            <p className="mt-4 text-white/85">
               We’ve been launching reliable, performance-driven iOS, Android, and cross-platform
               apps for over a decade.
             </p>
@@ -513,6 +535,20 @@ export default function MobileDevelopmentPage() {
               >
                 View platforms
               </a>
+            </div>
+
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 text-white/85">
+              {[
+                ["22+ Years", "Design & engineering"],
+                ["180+", "Mobile launches"],
+                ["98%", "Client retention"],
+                ["A/B", "Conversion-first"],
+              ].map(([k, v]) => (
+                <div key={k} className="rounded-xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
+                  <div className="text-xl font-bold">{k}</div>
+                  <div className="text-sm">{v}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -555,7 +591,7 @@ export default function MobileDevelopmentPage() {
             </div>
 
             <div className="relative">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                 <Image
                   src={overviewImg}
                   alt="Team planning mobile flows"
@@ -604,10 +640,7 @@ export default function MobileDevelopmentPage() {
                 active={activePlatform === "android"}
                 onClick={() => setActivePlatform("android")}
               >
-                <span className="inline-flex items-center gap-2">
-                  {/* <AndroidIcon className="w-4 h-4" /> */}
-                  Android
-                </span>
+                Android
               </Pill>
               <Pill
                 active={activePlatform === "reactnative"}
@@ -650,7 +683,7 @@ export default function MobileDevelopmentPage() {
                 </div>
                 <div className="mt-8 grid lg:grid-cols-5 gap-6 items-center">
                   <div className="lg:col-span-2">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                       <Image
                         src={platformDetails.ios.techExplainers[iosTech].img}
                         alt={platformDetails.ios.techExplainers[iosTech].title}
@@ -685,8 +718,10 @@ export default function MobileDevelopmentPage() {
                 {platformDetails.android.architecture.map((a) => (
                   <div
                     key={a.h}
-                    className="rounded-2xl bg-white ring-1 ring-slate-200 p-6 dark:bg-slate-950 dark:ring-slate-800"
+                    onMouseMove={handleSpotlight}
+                    className="relative rounded-2xl bg-white/80 ring-1 ring-slate-200 p-6 shadow-sm transition hover:shadow-xl dark:bg-slate-950/80 dark:ring-slate-800"
                   >
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(600px_200px_at_var(--x,50%)_-20%,rgba(59,130,246,.14),transparent)] opacity-0 transition-opacity duration-300 hover:opacity-100" />
                     <h4 className="text-lg font-semibold">{a.h}</h4>
                     <p className="mt-2 text-slate-600 dark:text-slate-300">{a.p}</p>
                     {a.bullets && (
@@ -696,7 +731,7 @@ export default function MobileDevelopmentPage() {
                         ))}
                       </ul>
                     )}
-                    <div className="mt-4 relative aspect-[4/3] rounded-xl overflow-hidden ring-1 ring-slate-200 dark:ring-slate-800">
+                    <div className="mt-4 relative aspect-[4/3] rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                       <Image
                         src={a.img}
                         alt={a.h}
@@ -710,7 +745,7 @@ export default function MobileDevelopmentPage() {
               </div>
 
               {/* iPhone → Android conversion CTA */}
-              <div className="mt-12 rounded-3xl overflow-hidden ring-1 ring-slate-200 dark:ring-slate-800">
+              <div className="mt-12 rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                 <div className="relative">
                   <div className="absolute inset-0">
                     <Image
@@ -720,13 +755,12 @@ export default function MobileDevelopmentPage() {
                       sizes="100vw"
                       className="object-cover opacity-60"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/60 to-blue-900/40" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(2,6,23,.88),rgba(2,6,23,.6),rgba(30,64,175,.45))]" />
                   </div>
                   <div className="relative z-10 p-8 sm:p-12 text-white">
                     <div className="flex items-center gap-2">
                       <Apple className="w-5 h-5" />
                       <Shuffle className="w-5 h-5" />
-                      {/* <AndroidIcon className="w-5 h-5" /> */}
                     </div>
                     <h4 className="mt-3 text-2xl font-bold">
                       {platformDetails.android.conversion.title}
@@ -789,15 +823,13 @@ export default function MobileDevelopmentPage() {
           )}
 
           {/* Xamarin */}
-          {activePlatform === "xamarin" && (
-            <PlatformIntro {...platformDetails.xamarin} />
-          )}
+          {activePlatform === "xamarin" && <PlatformIntro {...platformDetails.xamarin} />}
 
           {/* Support & Maintenance */}
           {activePlatform === "maintenance" && (
             <div className="mt-16">
               {/* banner */}
-              <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 dark:ring-slate-800">
+              <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                 <div className="absolute inset-0">
                   <Image
                     src={platformDetails.maintenance.hero}
@@ -806,13 +838,11 @@ export default function MobileDevelopmentPage() {
                     sizes="100vw"
                     className="object-cover opacity-70"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-blue-900/40" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(2,6,23,.85),rgba(2,6,23,.6),rgba(30,64,175,.4))]" />
                 </div>
                 <div className="relative z-10 p-8 sm:p-12 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold">Application maintenance & support</h3>
-                  <p className="mt-2 text-white/90">
-                    Fulfilling your needs—our objective.
-                  </p>
+                  <p className="mt-2 text-white/90">Fulfilling your needs—our objective.</p>
                 </div>
               </div>
 
@@ -829,7 +859,7 @@ export default function MobileDevelopmentPage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                     <Image
                       src={platformDetails.maintenance.servicesImg}
                       alt="Application maintenance services"
@@ -844,13 +874,14 @@ export default function MobileDevelopmentPage() {
               {/* types */}
               <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {platformDetails.maintenance.types.map((t) => (
-                  <Card
-                    key={t.k1}
-                    icon={Settings2}
-                    k1={t.k1}
-                    k2={t.k2}
-                    bullets={t.bullets}
-                  />
+                  <div key={t.k1} onMouseMove={handleSpotlight}>
+                    <Card
+                      icon={Settings2}
+                      k1={t.k1}
+                      k2={t.k2}
+                      bullets={t.bullets}
+                    />
+                  </div>
                 ))}
               </div>
 
@@ -882,7 +913,7 @@ export default function MobileDevelopmentPage() {
               {/* enable customers */}
               <div className="mt-12 grid lg:grid-cols-2 gap-8 items-center">
                 <div className="relative order-2 lg:order-1">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                     <Image
                       src={platformDetails.maintenance.enableImg}
                       alt="Enable customers"
@@ -914,7 +945,7 @@ export default function MobileDevelopmentPage() {
                   {platformDetails.maintenance.methodology.map((m) => (
                     <div
                       key={m.title}
-                      className="rounded-2xl bg-white p-6 ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800"
+                      className="rounded-2xl bg-white/80 p-6 ring-1 ring-slate-200 shadow-sm dark:bg-slate-950/80 dark:ring-slate-800"
                     >
                       <p className="text-lg font-bold">{m.title}</p>
                       <ul className="mt-3 space-y-2">
@@ -937,7 +968,7 @@ export default function MobileDevelopmentPage() {
                   {platformDetails.maintenance.activities.map((a) => (
                     <li
                       key={a.label}
-                      className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800"
+                      className="flex items-center gap-3 rounded-2xl bg-white/80 p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-950/80 dark:ring-slate-800"
                     >
                       <a.icon className="w-5 h-5 text-sky-600 shrink-0" />
                       <span className="text-sm">{a.label}</span>
@@ -993,7 +1024,7 @@ export default function MobileDevelopmentPage() {
             ].map((s) => (
               <li
                 key={s.label}
-                className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800"
+                className="flex items-center gap-3 rounded-2xl bg-white/80 p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-950/80 dark:ring-slate-800"
               >
                 <s.icon className="w-5 h-5 text-sky-600" />
                 <span className="text-sm">{s.label}</span>
@@ -1042,7 +1073,7 @@ export default function MobileDevelopmentPage() {
             ].map((cap) => (
               <li
                 key={cap}
-                className="flex items-center justify-center rounded-xl bg-white px-3 py-3 ring-1 ring-slate-200 text-slate-700 dark:bg-slate-950 dark:text-slate-200 dark:ring-slate-800"
+                className="flex items-center justify-center rounded-xl bg-white px-3 py-3 ring-1 ring-slate-200 text-slate-700 shadow-sm dark:bg-slate-950 dark:text-slate-200 dark:ring-slate-800"
               >
                 {cap}
               </li>
@@ -1050,8 +1081,6 @@ export default function MobileDevelopmentPage() {
           </ul>
         </div>
       </section>
-
-    
     </main>
   );
 }
