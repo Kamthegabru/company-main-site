@@ -27,7 +27,7 @@ import {
   UploadCloud,
   Layers,
 } from "lucide-react";
-
+import ios from "../../../public/images/ios-image.jpg"
 /* ------------------------------------ */
 /* Small helpers                        */
 /* ------------------------------------ */
@@ -101,7 +101,7 @@ const platformDetails = {
       "A comprehensive experience of leading full lifecycle iOS development.",
     ],
     sideImage:
-      "https://images.pexels.com/photos/1762173/pexels-photo-1762173.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
+      ios,
     techTabs: [
       { key: "swift", label: "Swift" },
       { key: "objc", label: "Objective-C" },

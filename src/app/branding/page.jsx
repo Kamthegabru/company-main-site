@@ -164,7 +164,7 @@ export default function WhatWeBrandingPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.pexels.com/photos/965121/pexels-photo-965121.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"
+            src="/images/branding.webp"
             alt="Abstract blue/navy gradients"
             fill
             priority
