@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import TechIndexHero from "./components/TechIndexHero";
 import HeroHeader from "./components/Header";
@@ -242,104 +244,306 @@ export default function Home() {
         professional IT Services
       </h2>
     </div>
-{/* Cards */}
-<div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-  {/* Card 1 */}
-  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-      {/* flaticon-responsive-like icon */}
-      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-        <rect x="3" y="4" width="12" height="9" rx="1.5"/>
-        <rect x="7" y="16" width="14" height="4" rx="1.5"/>
-        <path d="M9 9h4M10 18h8"/>
-      </svg>
-    </div>
-    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-      <a href="/ITconsultation" className="hover:underline">IT Solutions</a>
-    </h5>
-    <p className="mt-3 text-[14px] leading-6 text-slate-600">
-      Advisory and hands-on consulting to plan, modernize, and support your stack—cloud,
-      integrations, DevOps and day-to-day IT. Reduce cost, increase uptime, and move faster.
-    </p>
-    <a href="/ITconsultation" className="svc-arrow" aria-label="Read more about IT Solutions">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M5 12h14M13 5l7 7-7 7"/>
-      </svg>
-    </a>
-  </article>
 
-  {/* Card 2 */}
-  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-      {/* flaticon-monitor-like icon */}
-      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-        <rect x="3" y="4" width="18" height="12" rx="1.8"/>
-        <path d="M9 20h6M12 16v4"/>
-      </svg>
-    </div>
-    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-      <a href="/ITconsultation#security" className="hover:underline">Security System</a>
-    </h5>
-    <p className="mt-3 text-[14px] leading-6 text-slate-600">
-      End-to-end hardening for web, mobile, and infrastructure: IAM, endpoint protection,
-      24/7 monitoring, backups &amp; disaster recovery, and compliance-ready practices.
-    </p>
-    <a href="/ITconsultation#security" className="svc-arrow" aria-label="Read more about Security">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M5 12h14M13 5l7 7-7 7"/>
-      </svg>
-    </a>
-  </article>
 
-  {/* Card 3 */}
-  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-      {/* flaticon-coding-like icon */}
-      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-        <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 7l-2 10"/>
-      </svg>
-    </div>
-    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-      <a href="/web-development" className="hover:underline">Web Development</a>
-    </h5>
-    <p className="mt-3 text-[14px] leading-6 text-slate-600">
-      High-performance websites and portals in React/Next.js, .NET and PHP with headless CMS.
-      SEO-ready, accessible, responsive, and optimized for conversion and speed.
-    </p>
-    <a href="/web-development" className="svc-arrow" aria-label="Read more about Web Development">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M5 12h14M13 5l7 7-7 7"/>
-      </svg>
-    </a>
-  </article>
+{/* ============  NEXT-LEVEL SERVICE CARDS  ============ */}
+<section
+  aria-labelledby="services"
+  className="relative mt-14"
+  onMouseMove={(e) => {
+    // Spotlight follow (no libs)
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    el.style.setProperty("--spot-x", `${x}px`);
+    el.style.setProperty("--spot-y", `${y}px`);
+  }}
+>
+  {/* Background gradient wash + spotlight */}
+  <div
+    className="pointer-events-none absolute inset-0 rounded-3xl"
+    style={{
+      background:
+        "radial-gradient(600px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(11,77,143,0.12), transparent 45%)",
+      maskImage:
+        "radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 50%), black 50%, transparent 100%)",
+      WebkitMaskImage:
+        "radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 50%), black 50%, transparent 100%)",
+      transition: "mask-position 120ms ease-out, background-position 120ms ease-out",
+    }}
+  />
 
-  {/* Card 4 */}
-  <article className="svc-card relative rounded-[8px] bg-white px-10 pt-12 pb-16 text-center">
-    <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[12px] bg-slate-50">
-      {/* flaticon-laptop-like icon */}
-      <svg width="34" height="34" viewBox="0 0 24 24" stroke="#0A2C4A" strokeWidth="1.6" fill="none">
-        <rect x="4" y="6" width="16" height="10" rx="1.6"/>
-        <path d="M2 18h20"/>
-      </svg>
-    </div>
-    <h5 className="text-[18px] font-semibold text-[#0B4D8F]">
-      <a href="/mobile-development" className="hover:underline">App Development</a>
-    </h5>
-    <p className="mt-3 text+[14px] leading-6 text-slate-600">
-      Native iOS/Android and cross-platform apps with React Native/Flutter, secure APIs,
-      analytics, and CI/CD. From MVP to launch and ongoing support.
-    </p>
-    <a href="/mobile-development" className="svc-arrow" aria-label="Read more about App Development">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M5 12h14M13 5l7 7-7 7"/>
-      </svg>
-    </a>
-  </article>
-</div>
+  <div
+    id="services"
+    className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4 [--card-ring:linear-gradient(135deg,#0B4D8F_0%,#3BB1F5_40%,#00D1C1_100%)]"
+  >
+    {/* CARD: IT Solutions */}
+    <article className="group relative overflow-hidden rounded-2xl">
+      {/* Gradient ring frame */}
+      <div className="absolute inset-0 rounded-2xl p-[1px]">
+        <div className="h-full w-full rounded-2xl bg-[image:var(--card-ring)] opacity-30 blur-[1px] transition duration-300 group-hover:opacity-70" />
+      </div>
+
+      {/* Card body */}
+      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80">
+        {/* Top row */}
+        <div className="flex items-start justify-between">
+          {/* Icon bubble */}
+          <div className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-sky-50 to-cyan-50 text-[#0A2C4A] shadow-sm ring-1 ring-sky-100 dark:from-slate-800 dark:to-slate-800 dark:text-sky-200 dark:ring-slate-700">
+            <svg width="30" height="30" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6" fill="none">
+              <rect x="3" y="4" width="12" height="9" rx="1.5" />
+              <rect x="7" y="16" width="14" height="4" rx="1.5" />
+              <path d="M9 9h4M10 18h8" />
+            </svg>
+          </div>
+
+          {/* Badge */}
+          <span className="rounded-full bg-[#0B4D8F]/10 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-[#0B4D8F] ring-1 ring-[#0B4D8F]/20 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-sky-400/20">
+            Core Service
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="mt-5 text-lg font-semibold text-[#0B4D8F] dark:text-sky-200">
+          <a href="/ITconsultation" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+            IT Solutions
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </h3>
+
+        {/* Copy */}
+        <p className="mt-3 text-[14px] leading-6 text-slate-600 dark:text-slate-300/90">
+          Plan, modernize, and support your stack—cloud, integrations, DevOps, and day-to-day IT. Reduce cost,
+          increase uptime, and move faster.
+        </p>
+
+        {/* Footer: CTAs */}
+        <div className="mt-6 flex items-center justify-between">
+          <a
+            href="/ITconsultation"
+            className="inline-flex items-center cursor-pointer gap-2 rounded-lg px-3 py-2 text-[10px] font-semibold text-[#0A2C4A] ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:ring-slate-300 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+            aria-label="Read more about IT Solutions"
+          >
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" className="transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </a>
+
+          <div className="flex -space-x-2">
+            <span className="rounded-full bg-sky-100 px-2 py-1 text-[11px] font-medium text-sky-800 ring-1 ring-sky-200 dark:bg-sky-900/40 dark:text-sky-200 dark:ring-sky-800">
+              Cloud
+            </span>
+            <span className="rounded-full bg-cyan-100 px-2 py-1 text-[11px] font-medium text-cyan-800 ring-1 ring-cyan-200 dark:bg-cyan-900/40 dark:text-cyan-200 dark:ring-cyan-800">
+              DevOps
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Hover lift */}
+      <div className="absolute inset-0 rounded-2xl transition-transform duration-300 group-hover:-translate-y-0.5" />
+    </article>
+
+    {/* CARD: Security System */}
+    <article className="group relative overflow-hidden rounded-2xl">
+      <div className="absolute inset-0 rounded-2xl p-[1px]">
+        <div className="h-full w-full rounded-2xl bg-[image:var(--card-ring)] opacity-30 blur-[1px] transition duration-300 group-hover:opacity-70" />
+      </div>
+
+      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80">
+        <div className="flex items-start justify-between">
+          <div className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-sky-50 to-cyan-50 text-[#0A2C4A] shadow-sm ring-1 ring-sky-100 dark:from-slate-800 dark:to-slate-800 dark:text-sky-200 dark:ring-slate-700">
+            <svg width="30" height="30" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6" fill="none">
+              <rect x="3" y="4" width="18" height="12" rx="1.8" />
+              <path d="M9 20h6M12 16v4" />
+            </svg>
+          </div>
+          <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-emerald-700 ring-1 ring-emerald-500/20 dark:text-emerald-300 dark:ring-emerald-400/20">
+            Security
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-lg font-semibold text-[#0B4D8F] dark:text-sky-200">
+          <a href="/ITconsultation#security" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+            Security System
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </h3>
+
+        <p className="mt-3 text-[14px] leading-6 text-slate-600 dark:text-slate-300/90">
+          Hardening for web, mobile, and infrastructure: IAM, endpoint protection, 24/7 monitoring, backups,
+          disaster recovery, and compliance readiness.
+        </p>
+
+        <div className="mt-6 flex items-center justify-between">
+          <a
+            href="/ITconsultation#security"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-[10px] cursor-pointer font-semibold text-[#0A2C4A] ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:ring-slate-300 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+            aria-label="Read more about Security System"
+          >
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" className="transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </a>
+
+          <div className="flex -space-x-2">
+            <span className="rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-medium text-emerald-800 ring-1 ring-emerald-200 dark:bg-emerald-900/40 dark:text-emerald-200 dark:ring-emerald-800">
+              SOC
+            </span>
+            <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-800 ring-1 ring-slate-200 dark:bg-slate-900/50 dark:text-slate-200 dark:ring-slate-700">
+              DR/BCP
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD: Web Development */}
+    <article className="group relative overflow-hidden rounded-2xl">
+      <div className="absolute inset-0 rounded-2xl p-[1px]">
+        <div className="h-full w-full rounded-2xl bg-[image:var(--card-ring)] opacity-30 blur-[1px] transition duration-300 group-hover:opacity-70" />
+      </div>
+
+      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80">
+        <div className="flex items-start justify-between">
+          <div className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-sky-50 to-cyan-50 text-[#0A2C4A] shadow-sm ring-1 ring-sky-100 dark:from-slate-800 dark:to-slate-800 dark:text-sky-200 dark:ring-slate-700">
+            <svg width="30" height="30" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6" fill="none">
+              <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 7l-2 10" />
+            </svg>
+          </div>
+          <span className="rounded-full bg-fuchsia-500/10 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-fuchsia-700 ring-1 ring-fuchsia-500/20 dark:text-fuchsia-300 dark:ring-fuchsia-400/20">
+            Experience
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-lg font-semibold text-[#0B4D8F] dark:text-sky-200">
+          <a href="/web-development" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+            Web Development
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </h3>
+
+        <p className="mt-3 text-[14px] leading-6 text-slate-600 dark:text-slate-300/90">
+          High-performance sites in React/Next.js with headless CMS. SEO-ready, accessible, responsive, and built
+          for conversion & speed.
+        </p>
+
+        <div className="mt-6 flex items-center justify-between">
+          <a
+            href="/web-development"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-[10px] cursor-pointer font-semibold text-[#0A2C4A] ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:ring-slate-300 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+            aria-label="Read more about Web Development"
+          >
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" className="transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </a>
+
+          <div className="flex -space-x-2">
+            <span className="rounded-full bg-indigo-100 px-2 py-1 text-[11px] font-medium text-indigo-800 ring-1 ring-indigo-200 dark:bg-indigo-900/40 dark:text-indigo-200 dark:ring-indigo-800">
+              Next.js
+            </span>
+            <span className="rounded-full bg-rose-100 px-2 py-1 text-[11px] font-medium text-rose-800 ring-1 ring-rose-200 dark:bg-rose-900/40 dark:text-rose-200 dark:ring-rose-800">
+              Headless
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD: App Development */}
+    <article className="group relative overflow-hidden rounded-2xl">
+      <div className="absolute inset-0 rounded-2xl p-[1px]">
+        <div className="h-full w-full rounded-2xl bg-[image:var(--card-ring)] opacity-30 blur-[1px] transition duration-300 group-hover:opacity-70" />
+      </div>
+
+      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80">
+        <div className="flex items-start justify-between">
+          <div className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-sky-50 to-cyan-50 text-[#0A2C4A] shadow-sm ring-1 ring-sky-100 dark:from-slate-800 dark:to-slate-800 dark:text-sky-200 dark:ring-slate-700">
+            <svg width="30" height="30" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6" fill="none">
+              <rect x="4" y="6" width="16" height="10" rx="1.6" />
+              <path d="M2 18h20" />
+            </svg>
+          </div>
+          <span className="rounded-full bg-amber-500/10 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-amber-700 ring-1 ring-amber-500/20 dark:text-amber-300 dark:ring-amber-400/20">
+            Mobile
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-lg font-semibold text-[#0B4D8F] dark:text-sky-200">
+          <a href="/mobile-development" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+            App Development
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </h3>
+
+        <p className="mt-3 text-[14px] leading-6 text-slate-600 dark:text-slate-300/90">
+          Native iOS/Android & cross-platform (React Native/Flutter), secure APIs, analytics, CI/CD—from MVP to
+          launch & ongoing support.
+        </p>
+
+        <div className="mt-6 flex items-center justify-between">
+          <a
+            href="/mobile-development"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-[10px] cursor-pointer font-semibold text-[#0A2C4A] ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:ring-slate-300 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+            aria-label="Read more about App Development"
+          >
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" className="transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </a>
+
+          <div className="flex -space-x-2">
+            <span className="rounded-full bg-amber-100 px-2 py-1 text-[11px] font-medium text-amber-800 ring-1 ring-amber-200 dark:bg-amber-900/40 dark:text-amber-200 dark:ring-amber-800">
+              iOS
+            </span>
+            <span className="rounded-full bg-sky-100 px-2 py-1 text-[11px] font-medium text-sky-800 ring-1 ring-sky-200 dark:bg-sky-900/40 dark:text-sky-200 dark:ring-sky-800">
+              Android
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  {/* Motion preference: disable spotlight if user prefers reduced motion */}
+  <style jsx>{`
+    @media (prefers-reduced-motion: reduce) {
+      section[aria-labelledby="services"] > div:first-child {
+        display: none;
+      }
+    }
+  `}</style>
+</section>
+
 
   
   </div>
 </section>
+
+
+
 
 
 
@@ -360,127 +564,190 @@ export default function Home() {
           WHAT WE SERVE
         </div>
         <h2
-          className="mt-2 sm:mt-3 text-[20px] sm:text-[28px] md:text-[32px] lg:text-[34px] font-extrabold leading-snug"
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
-          We deal with the aspects of <br className="hidden sm:block" />
-          professional IT Services
-        </h2>
+        className="mt-3 text-white text-[30px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-bold leading-[1.25]"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
+        We deal with the aspects of <br className="hidden sm:block" />
+        professional IT Services
+      </h2>
       </div>
     </div>
 
-    {/* CARDS (overlap the blue panel) */}
-    <div className="-mt-8 sm:-mt-10 grid grid-cols-1 gap-4 sm:gap-7 md:grid-cols-2 lg:grid-cols-3">
-      {/* 1. Web Development */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-1 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* code window */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="14" rx="1.6"/>
-            <path d="M7 10l-3 2 3 2M17 10l3 2-3 2M12 9l-2 6"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          Web Development
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          We carry more than just good coding skills. Our experience makes us stand
-          out from other web development.
-        </p>
-      </article>
+ {/* ✨ NEXT-LEVEL SERVICE CARDS */}
+<div className="-mt-8 sm:-mt-6 max-w-[1100px] mx-auto">
+  {/* data-driven so you can tweak easily */}
+  {[
+    {
+      title: "Web Development",
+      desc:
+        "High-performance Next.js apps, headless CMS, and pixel-perfect UI built for speed and scale.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="14" rx="1.6"/>
+          <path d="M7 10l-3 2 3 2M17 10l3 2-3 2M12 9l-2 6"/>
+        </svg>
+      ),
+      badge: "Pro",
+      delay: "reveal-delay-1",
+    },
+    {
+      title: "Mobile Development",
+      desc:
+        "iOS/Android with one codebase. PWAs or React Native with smooth performance and native feel.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="7" y="2" width="10" height="20" rx="2"/>
+          <circle cx="12" cy="18" r="1.3"/>
+          <path d="M9 6h6"/>
+        </svg>
+      ),
+      badge: "Native",
+      delay: "reveal-delay-2",
+    },
+    {
+      title: "Branding & Identity",
+      desc:
+        "Strategy-led identities, systems, and guidelines that stay consistent across every touchpoint.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="12" rx="1.6"/>
+          <path d="M7 9h10M7 13h4"/>
+        </svg>
+      ),
+      badge: "Studio",
+      delay: "reveal-delay-3",
+    },
+    {
+      title: "Digital Marketing",
+      desc:
+        "SEO + ads + content engines that compound. Analytics-driven funnels, not guesswork.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      ),
+      badge: "Growth",
+      delay: "reveal-delay-1",
+    },
+    {
+      title: "IT Consultancy",
+      desc:
+        "Solve bottlenecks, modernize stacks, harden security, and ship with confidence.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="12" rx="1.6"/>
+          <path d="M9 21h6M12 17v4"/>
+        </svg>
+      ),
+      badge: "Ops",
+      delay: "reveal-delay-2",
+    },
+    {
+      title: "Dedicated Team",
+      desc:
+        "Embedded squads that ship like an in-house team — velocity, rituals, and outcomes.",
+      icon: (
+        <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="8" cy="7" r="3"/>
+          <circle cx="16" cy="7" r="3"/>
+          <path d="M2 20c1.2-3 3.8-5 6-5s4.8 2 6 5M14 12h4a4 4 0 0 1 4 4v4"/>
+        </svg>
+      ),
+      badge: "Elite",
+      delay: "reveal-delay-3",
+    },
+  ].reduce((rows, item, idx, arr) => {
+    if (idx % 3 === 0) rows.push(arr.slice(idx, idx + 3));
+    return rows;
+  }, []).map((row, rIdx) => (
+    <div
+      key={rIdx}
+      className="grid grid-cols-1 gap-4 mb-4 sm:gap-7 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {row.map((card, i) => (
+        <article
+          key={card.title}
+          aria-label={card.title}
+          className={[
+            // gradient border wrapper
+            "group relative p-[1px] rounded-2xl",
+            "bg-gradient-to-br from-[#0a2c4a] via-blue-500/60 to-cyan-400",
+            "shadow-[0_0_0_1px_rgba(10,44,74,.08),0_10px_30px_-10px_rgba(16,24,40,.2)]",
+            "transition-transform duration-300 will-change-transform",
+            "hover:-translate-y-1 hover:shadow-[0_12px_40px_-8px_rgba(16,24,40,.28)]",
+            card.delay,
+          ].join(" ")}
+        >
+          {/* inner glass panel */}
+          <div
+            className={[
+              "rounded-[14px] sm:rounded-[16px] p-5 sm:p-7",
+              "bg-white/75 dark:bg-slate-900/60 backdrop-blur-xl",
+              "ring-1 ring-black/5 dark:ring-white/5",
+              "relative overflow-hidden",
+            ].join(" ")}
+          >
+            {/* radial glow */}
+            <div className="pointer-events-none absolute -top-10 -right-10 h-36 w-36 rounded-full bg-cyan-200/50 blur-3xl dark:bg-cyan-500/10" />
+            {/* badge */}
+            <span className="absolute right-3 top-3 select-none rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white shadow-sm">
+              {card.badge}
+            </span>
 
-      {/* 2. Mobile Development */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-2 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* phone/app */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="7" y="2" width="10" height="20" rx="2"/>
-            <circle cx="12" cy="18" r="1.3"/>
-            <path d="M9 6h6"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          Mobile Development
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          Create complex enterprise software, ensure reliable software integration,
-          modernise your legacy system.
-        </p>
-      </article>
+            {/* icon bubble */}
+            <div className="grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-xl bg-slate-50/80 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10 shadow-inner">
+              {/* tint icon to theme on hover */}
+              <div className="transition-colors duration-300 group-hover:[&>svg]:stroke-indigo-700 dark:group-hover:[&>svg]:stroke-cyan-400">
+                {card.icon}
+              </div>
+            </div>
 
-      {/* 3. Branding & identity */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-3 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* screen + ruler */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="12" rx="1.6"/>
-            <path d="M7 9h10M7 13h4"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          Branding & identity
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600 sm:line-clamp-none line-clamp-4">
-          We fuel the growth of purpose driven brands through strategy activation, design empowerment,
-          and market adoption. From cultivating new ideas to connecting the dots for customers or users,
-          these are our core principles
-        </p>
-      </article>
+            {/* title */}
+            <h5 className="mt-4 text-[16px] sm:text-[18px] font-semibold tracking-tight text-[#0A2C4A] dark:text-slate-100">
+              {card.title}
+            </h5>
 
-      {/* 4. Digital marketing */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-1 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* dashboard/checks */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="8"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          Digital marketing
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          With a keen understanding of what&#39;s happening in the digital landscape, we leverage the
-          power of marketing platforms to connect audiences with contagious content.
-        </p>
-      </article>
+            {/* description */}
+            <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
+              {card.desc}
+            </p>
 
-      {/* 5. IT Consultancy */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-2 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* monitor/ops */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="12" rx="1.6"/>
-            <path d="M9 21h6M12 17v4"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          IT Consultancy
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          Trust our top minds to eliminate workflow pain points, implement new tech, and consolidate
-          app portfolios.
-        </p>
-      </article>
+            {/* bottom action / chips */}
+            <div className="mt-4 flex items-center justify-between">
+              <div className="flex gap-2">
+                <span className="rounded-full border border-slate-200/80 bg-white/70 px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                  Strategy
+                </span>
+                <span className="rounded-full border border-slate-200/80 bg-white/70 px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                  Build
+                </span>
+                <span className="hidden sm:inline rounded-full border border-slate-200/80 bg-white/70 px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                  Launch
+                </span>
+              </div>
 
-      {/* 6. Dedicated Team */}
-      <article className="svc2-card p-5 sm:p-8 reveal-up reveal-delay-3 rounded-xl sm:rounded-[14px]">
-        <div className="svc2-icon">
-          {/* team chart */}
-          <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="#0A2C4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <circle cx="8" cy="7" r="3"/>
-            <circle cx="16" cy="7" r="3"/>
-            <path d="M2 20c1.2-3 3.8-5 6-5s4.8 2 6 5M14 12h4a4 4 0 0 1 4 4v4"/>
-          </svg>
-        </div>
-        <h5 className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-semibold text-[#0A2C4A]">
-          Dedicated Team
-        </h5>
-        <p className="mt-2 text-[14px] leading-6 text-slate-600">
-          Over the past decade, our customers succeeded by leveraging our process of building, motivating.
-        </p>
-      </article>
+              {/* arrow with micro-motion */}
+              <button
+                className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:gap-2 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-slate-900"
+                type="button"
+              >
+                Explore
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* sheen on hover */}
+            <div className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
+          </div>
+        </article>
+      ))}
     </div>
+  ))}
+</div>
+
   </div>
 </section>
 
@@ -542,7 +809,7 @@ export default function Home() {
                     <div className="h-[4px] w-full rounded-t-md bg-[#2F6BFF]" />
                     <div className="px-5 py-4">
                       <h5 className="text-[18px] font-extrabold text-[#0A2C4A]">
-                        <Link href={m.href}>{m.name}</Link>
+                        <p>{m.name}</p>
                       </h5>
                       <div className="mt-1 text-[13px] font-medium text-[#8A95A6]">
                         {m.role}

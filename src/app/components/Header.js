@@ -47,7 +47,6 @@ export default function HeroHeader() {
       if (e.key === "Escape") setOpen(false);
       if (!open || !panelRef.current) return;
 
-      // Simple focus trap
       if (e.key === "Tab") {
         const focusables = panelRef.current.querySelectorAll(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -94,7 +93,7 @@ export default function HeroHeader() {
     <main className="bg-white text-[#0A2C4A] font-[Poppins,sans-serif]">
       {/* Top Info Bar */}
       <div className="w-full bg-[#0B4D8F] text-white text-sm">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
           <div className="flex h-10 items-center justify-between">
             <div className="flex items-center gap-4">
               <a href="tel:+12065717659" className="opacity-90 hover:opacity-100">
@@ -141,10 +140,11 @@ export default function HeroHeader() {
                     HOME
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     href="#about"
-                    className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
+                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
                   >
                     ABOUT
                   </Link>
@@ -154,7 +154,7 @@ export default function HeroHeader() {
                 <li className="relative group">
                   <Link
                     href="/companies"
-                    className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
+                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors group-hover:text-[#0B4D8F] focus:outline-none"
                   >
                     COMPANIES
                     <svg
@@ -165,20 +165,40 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
-                  <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
-                    <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
-                    <ul className="py-2">
-                      {(companies || []).map((c) => (
-                        <li key={c.slug}>
+
+                  {/* Hover bridge (pt-4) */}
+                  <div
+                    className="
+                      absolute left-1/2 top-full -translate-x-1/2 w-[300px] pt-4
+                      opacity-0 invisible pointer-events-none
+                      group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                      focus-within:opacity-100 focus-within:visible focus-within:pointer-events-auto
+                      transition-all duration-200
+                    "
+                  >
+                    <div className="rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
+                      <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
+                      <ul className="py-2">
+                        {(companies || []).map((c) => (
+                          <li key={c.slug}>
+                            <Link
+                              href={`/companies/${c.slug}`}
+                              className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                            >
+                              {c.name}
+                            </Link>
+                          </li>
+                        ))}
+                        <li className="border-t">
                           <Link
-                            href={`/companies/${c.slug}`}
-                            className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                            href="/companies"
+                            className="block px-6 py-3 text-[14px] font-medium text-[#0B4D8F]"
                           >
-                            {c.name}
+                            View all
                           </Link>
                         </li>
-                      ))}
-                    </ul>
+                      </ul>
+                    </div>
                   </div>
                 </li>
 
@@ -186,7 +206,7 @@ export default function HeroHeader() {
                 <li className="relative group">
                   <Link
                     href="/projects"
-                    className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
+                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors group-hover:text-[#0B4D8F] focus:outline-none"
                   >
                     PROJECTS
                     <svg
@@ -197,20 +217,39 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </Link>
-                  <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
-                    <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
-                    <ul className="py-2">
-                      {(projects || []).map((p) => (
-                        <li key={p.slug}>
+
+                  <div
+                    className="
+                      absolute left-1/2 top-full -translate-x-1/2 w-[300px] pt-4
+                      opacity-0 invisible pointer-events-none
+                      group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                      focus-within:opacity-100 focus-within:visible focus-within:pointer-events-auto
+                      transition-all duration-200
+                    "
+                  >
+                    <div className="rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
+                      <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
+                      <ul className="py-2">
+                        {(projects || []).map((p) => (
+                          <li key={p.slug}>
+                            <Link
+                              href={`/projects/${p.slug}`}
+                              className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                            >
+                              {p.name}
+                            </Link>
+                          </li>
+                        ))}
+                        <li className="border-t">
                           <Link
-                            href={`/projects/${p.slug}`}
-                            className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                            href="/projects"
+                            className="block px-6 py-3 text-[14px] font-medium text-[#0B4D8F]"
                           >
-                            {p.name}
+                            View all
                           </Link>
                         </li>
-                      ))}
-                    </ul>
+                      </ul>
+                    </div>
                   </div>
                 </li>
 
@@ -218,7 +257,8 @@ export default function HeroHeader() {
                 <li className="relative group">
                   <button
                     type="button"
-                    className="flex items-center gap-1 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
+                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors group-hover:text-[#0B4D8F] focus:outline-none"
+                    aria-expanded="false"
                   >
                     WHAT WE DO
                     <svg
@@ -229,20 +269,31 @@ export default function HeroHeader() {
                       <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" />
                     </svg>
                   </button>
-                  <div className="invisible pointer-events-none opacity-0 group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 absolute left-1/2 top-full mt-5 -translate-x-1/2 w-[300px] rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-200">
-                    <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
-                    <ul className="py-2">
-                      {whatWeDo.map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+
+                  <div
+                    className="
+                      absolute left-1/2 top-full -translate-x-1/2 w-[300px] pt-4
+                      opacity-0 invisible pointer-events-none
+                      group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                      focus-within:opacity-100 focus-within:visible focus-within:pointer-events-auto
+                      transition-all duration-200
+                    "
+                  >
+                    <div className="rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
+                      <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
+                      <ul className="py-2">
+                        {whatWeDo.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              className="relative block px-6 py-3 text-[14px] text-[#203245] border-b border-gray-100 last:border-0 hover:bg-[#f7f9fb] hover:text-[#0B4D8F] transition-all before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-[#0B4D8F] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -453,7 +504,7 @@ export default function HeroHeader() {
                   >
                     <ul className="mt-1 overflow-hidden rounded-lg border border-gray-100 bg-white">
                       {whatWeDo.map((item) => (
-                        <li key={item.href} className="border-b last:border-b-0">
+                        <li key={item.href} className="border-b last:border-0">
                           <Link
                             href={item.href}
                             onClick={() => setOpen(false)}

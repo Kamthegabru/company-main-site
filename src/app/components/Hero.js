@@ -155,7 +155,7 @@ useEffect(() => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100vh] min-h-[580px] w-full overflow-hidden"
+      className="relative h-[80vh] min-h-[580px] w-full overflow-hidden"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onTouchStart={onTouchStart}

@@ -4,10 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import {
-  Sparkles, PenTool, Layout, Wand2, ArrowRight, BadgeCheck,
-  Palette, MonitorSmartphone, Layers, Rocket, CheckCircle2,
+  Sparkles,
+  PenTool,
+  Layout,
+  Wand2,
+  ArrowRight,
+  BadgeCheck,
+  Palette,
+  MonitorSmartphone,
+  Layers,
+  Rocket,
+  CheckCircle2,
+  Target,
+  Flag,
+  Compass,
 } from "lucide-react";
 
+/* ----------------------------- Data ----------------------------- */
 const cards = [
   {
     icon: <Layout className="w-6 h-6" />,
@@ -63,6 +76,78 @@ const services = [
   },
 ];
 
+const mga = [
+  {
+    icon: <Flag className="w-5 h-5" />,
+    title: "Mission",
+    body:
+      "Design brand experiences people love using: fast to grasp, easy to act on, and memorable to revisit.",
+  },
+  {
+    icon: <Target className="w-5 h-5" />,
+    title: "Goal",
+    body:
+      "Lift conversion and trust with a systemized design language that scales across web, app, and campaigns.",
+  },
+  {
+    icon: <Compass className="w-5 h-5" />,
+    title: "Approach",
+    body:
+      "Insights → concept sprints → design tokens & components → production assets with QA and handoff.",
+  },
+];
+
+const tools = [
+  { name: "Figma", src: "https://cdn.simpleicons.org/figma" },
+  { name: "Adobe CC", src: "https://cdn.simpleicons.org/adobecreativecloud" },
+  { name: "Laravel", src: "https://cdn.simpleicons.org/laravel/EF3B2D" }, // fixed: always loads
+  { name: "React", src: "https://cdn.simpleicons.org/react" },
+  { name: "Next.js", src: "https://cdn.simpleicons.org/nextdotjs" },
+  { name: "Tailwind", src: "https://cdn.simpleicons.org/tailwindcss" },
+];
+
+/* ------------------ Simple horizontal snap scroller ------------------ */
+function SnapScroller({ items }) {
+  const ref = useRef(null);
+  return (
+    <div className="relative">
+      <div
+        ref={ref}
+        className="mt-8 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ scrollBehavior: "smooth" }}
+      >
+        {items.map((card) => (
+          <article
+            key={card.title}
+            className="snap-start min-w-[320px] sm:min-w-[360px] lg:min-w-[420px]"
+          >
+            <div className="relative h-full rounded-2xl p-[1px] bg-gradient-to-br from-sky-500/30 via-blue-600/30 to-fuchsia-500/30">
+              <div className="relative h-full rounded-2xl bg-white/90 dark:bg-slate-950/70 ring-1 ring-slate-200/70 dark:ring-slate-800/70 p-6 overflow-hidden">
+                <div className="flex items-center gap-3 text-sky-700 dark:text-sky-300">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 dark:bg-slate-900 dark:ring-slate-700">
+                    {card.icon}
+                  </div>
+                  <h4 className="text-lg font-semibold">{card.title}</h4>
+                </div>
+                <p className="mt-3 text-slate-600 dark:text-slate-300">{card.body}</p>
+                <ul className="mt-4 space-y-2 text-sm">
+                  {card.bullets.map((b) => (
+                    <li key={b} className="flex gap-2 text-slate-700 dark:text-slate-200">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sky-500" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ----------------------------- Page ----------------------------- */
 export default function WhatWeBrandingPage() {
   const railRef = useRef(null);
 
@@ -79,7 +164,6 @@ export default function WhatWeBrandingPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            // abstract blue/navy background (Pexels)
             src="https://images.pexels.com/photos/965121/pexels-photo-965121.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"
             alt="Abstract blue/navy gradients"
             fill
@@ -100,9 +184,8 @@ export default function WhatWeBrandingPage() {
               We design what’s next—<span className="text-sky-300">and make it work</span>.
             </h1>
             <p className="mt-4 text-lg text-white/80">
-              Strategy-led branding and product-grade UI that converts. From
-              identity to interfaces, we unify your story across web, app, and
-              marketing.
+              Strategy-led branding and product-grade UI that converts. From identity to interfaces,
+              we unify your story across web, app, and marketing.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -137,6 +220,31 @@ export default function WhatWeBrandingPage() {
         </div>
       </section>
 
+      {/* MISSION • GOAL • APPROACH */}
+      <section className="relative py-16">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-sky-50/60 to-transparent dark:via-slate-900/40" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-3">
+            {mga.map((m) => (
+              <div
+                key={m.title}
+                className="group rounded-2xl p-[1px] bg-gradient-to-br from-sky-500/40 via-blue-600/40 to-fuchsia-500/40"
+              >
+                <div className="rounded-2xl bg-white/90 p-6 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl dark:bg-slate-950/70 dark:ring-slate-800">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 text-sky-700 dark:bg-slate-900 dark:text-sky-300 dark:ring-slate-700">
+                      {m.icon}
+                    </div>
+                    <p className="text-lg font-semibold">{m.title}</p>
+                  </div>
+                  <p className="mt-3 text-slate-600 dark:text-slate-300">{m.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* DESIGN THAT WORKS */}
       <section className="relative py-20">
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-sky-50/50 to-transparent dark:via-slate-900/40" />
@@ -151,9 +259,8 @@ export default function WhatWeBrandingPage() {
                 Looks are great. Results are better.
               </h2>
               <p className="mt-4 text-slate-600 dark:text-slate-300">
-                Great design is how it feels and how it functions. We blend your
-                brand vision with user needs to deliver delightful, measurable
-                outcomes—every screen, every touchpoint.
+                Great design is how it feels and how it functions. We blend your brand vision with
+                user needs to deliver delightful, measurable outcomes—every screen, every touchpoint.
               </p>
               <ul className="mt-6 space-y-3 text-slate-700 dark:text-slate-200">
                 {[
@@ -172,7 +279,6 @@ export default function WhatWeBrandingPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
                 <Image
-                  // design / workspace (Pexels)
                   src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
                   alt="UI design explorations"
                   fill
@@ -219,26 +325,24 @@ export default function WhatWeBrandingPage() {
           <div ref={railRef} className="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {cards.map((c) => (
               <article key={c.title} className="snap-start min-w-[320px] sm:min-w-[360px] lg:min-w-[420px]">
-                <div className="relative h-full rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm transition hover:shadow-lg dark:bg-slate-950 dark:ring-slate-800">
-                  <div className="flex items-center gap-3 text-sky-700 dark:text-sky-300">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 dark:bg-slate-900 dark:ring-slate-700">
-                      {c.icon}
+                <div className="group relative h-full rounded-2xl p-[1px] bg-gradient-to-br from-sky-500/30 via-blue-600/30 to-fuchsia-500/30">
+                  <div className="relative h-full rounded-2xl bg-white/90 dark:bg-slate-950/70 ring-1 ring-slate-200/70 dark:ring-slate-800/70 p-6 overflow-hidden transition hover:-translate-y-0.5 hover:shadow-xl">
+                    <div className="relative flex items-center gap-3 text-sky-700 dark:text-sky-300">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 dark:bg-slate-900 dark:ring-slate-700">
+                        {c.icon}
+                      </div>
+                      <h4 className="text-lg font-semibold">{c.title}</h4>
                     </div>
-                    <h4 className="text-lg font-semibold">{c.title}</h4>
-                  </div>
-                  <p className="mt-3 text-slate-600 dark:text-slate-300">{c.body}</p>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    {c.bullets.map((b) => (
-                      <li key={b} className="flex gap-2 text-slate-700 dark:text-slate-200">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-500" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6">
-                    <Link href={`/services/${c.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="inline-flex items-center gap-2 text-sm font-semibold text-sky-700 hover:text-sky-600 dark:text-sky-300">
-                      Learn more <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <p className="relative mt-3 text-slate-600 dark:text-slate-300">{c.body}</p>
+                    <ul className="relative mt-4 space-y-2 text-sm">
+                      {c.bullets.map((b) => (
+                        <li key={b} className="flex gap-2 text-slate-700 dark:text-slate-200">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sky-500" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                    {/* no Learn more */}
                   </div>
                 </div>
               </article>
@@ -257,18 +361,20 @@ export default function WhatWeBrandingPage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <div key={s.k1} className="group relative rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl dark:bg-slate-950 dark:ring-slate-800">
-                <div className="absolute inset-x-0 -top-[1px] h-[2px] bg-gradient-to-r from-sky-500 via-blue-600 to-sky-500 opacity-0 transition group-hover:opacity-100" />
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 text-sky-700 dark:bg-slate-900 dark:text-sky-300 dark:ring-slate-700">
-                    {s.icon}
+              <div key={s.k1} className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-sky-500/40 via-blue-600/40 to-fuchsia-500/40">
+                <div className="relative rounded-2xl bg-white/90 p-6 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl dark:bg-slate-950/70 dark:ring-slate-800">
+                  <div className="absolute -inset-16 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(40%_40%_at_30%_20%,rgba(56,189,248,0.15),transparent),radial-gradient(30%_30%_at_80%_70%,rgba(59,130,246,0.15),transparent)]" />
+                  <div className="relative flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-200 text-sky-700 dark:bg-slate-900 dark:text-sky-300 dark:ring-slate-700">
+                      {s.icon}
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold">{s.k1}</div>
+                      <div className="-mt-0.5 text-lg font-extrabold tracking-tight">{s.k2}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-lg font-semibold">{s.k1}</div>
-                    <div className="-mt-0.5 text-lg font-extrabold tracking-tight">{s.k2}</div>
-                  </div>
+                  <p className="relative mt-3 text-slate-600 dark:text-slate-300">{s.body}</p>
                 </div>
-                <p className="mt-3 text-slate-600 dark:text-slate-300">{s.body}</p>
               </div>
             ))}
           </div>
@@ -304,12 +410,38 @@ export default function WhatWeBrandingPage() {
         </div>
       </section>
 
+      {/* TOOLING (network logos incl. Laravel) */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-center text-3xl font-bold">Tools we design with</h3>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600 dark:text-slate-300">
+            A modern stack for modern brands.
+          </p>
+          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+            {tools.map((t) => (
+              <li
+                key={t.name}
+                className="rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/60 p-4 flex items-center justify-center"
+                title={t.name}
+              >
+                <Image
+                  src={t.src}
+                  alt={t.name}
+                  width={72}
+                  height={72}
+                  className="h-12 w-auto object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* GALLERY / PROOF */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
             {[
-              // clean branding/UI shots (Pexels)
               { src: "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-1" },
               { src: "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-2" },
               { src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-3" },
