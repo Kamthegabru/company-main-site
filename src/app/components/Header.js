@@ -92,29 +92,7 @@ export default function HeroHeader() {
   return (
     <main className="bg-white text-[#0A2C4A] font-[Poppins,sans-serif]">
       {/* Top Info Bar */}
-      <div className="w-full bg-[#0B4D8F] text-white text-sm">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
-          <div className="flex h-10 items-center justify-between">
-            <div className="flex items-center gap-4">
-              <a href="tel:+12065717659" className="opacity-90 hover:opacity-100">
-                (206)571-7659
-              </a>
-              <span className="hidden h-3 w-px bg-white/30 md:inline" />
-              <a
-                href="mailto:info@seatechconsulting.com"
-                className="hidden opacity-90 hover:opacity-100 md:inline"
-              >
-                Inquiry: info@seatechconsulting.com
-              </a>
-            </div>
-            <div className="hidden items-center gap-4 opacity-90 md:flex">
-              <span>3055 NW YEON AVE UNTT#271 Portland, OR 97210</span>
-              <span className="h-3 w-px bg-white/30" />
-              <span>Dev Teams: Devs@seatechconsulting.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Header */}
       <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur shadow-[0_10px_30px_rgba(0,0,0,0.06)]">

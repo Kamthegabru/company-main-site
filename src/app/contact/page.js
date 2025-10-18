@@ -131,7 +131,7 @@ export default function ContactPage() {
             <InfoCard
               icon={<Phone className="h-6 w-6" />}
               title="Call"
-              lines={["(206) 571-7659"]}
+              lines={["(206) 571-7659  |  +1 (360) 249-7511"]}
               accent="from-emerald-400 to-teal-600"
               action={{ label: "Call Now", href: "tel:12065717659" }}
             />
