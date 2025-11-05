@@ -11,7 +11,7 @@ const nextConfig = {
     deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
     imageSizes: [16, 24, 32, 48, 64, 96, 128],
 
-    // Allow SVG icons (e.g., Simple Icons) with a safe CSP
+    // Allow SVG icons (e.g., Simple Icons, Devicons)
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
 
@@ -19,13 +19,16 @@ const nextConfig = {
     remotePatterns: [
       // Existing
       { protocol: "https", hostname: "expert-themes.com", pathname: "/html/globex/images/**" },
-      { protocol: "https", hostname: "seatechconsulting.com", pathname: "/Images/**" },
+      { protocol: "https", hostname: "seatechconsulting.netlify.app", pathname: "/Images/**" },
 
       // Pexels (network images)
       { protocol: "https", hostname: "images.pexels.com", pathname: "/photos/**" },
 
       // Simple Icons (SVG tech logos like Laravel, React, etc.)
       { protocol: "https", hostname: "cdn.simpleicons.org", pathname: "/**" },
+
+      // Devicons hosted on jsDelivr (Angular, React, etc.)
+      { protocol: "https", hostname: "cdn.jsdelivr.net", pathname: "/gh/devicons/**" },
 
       // Optional placeholder service
       { protocol: "https", hostname: "picsum.photos", pathname: "/**" },

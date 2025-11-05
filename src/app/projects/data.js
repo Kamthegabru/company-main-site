@@ -6,8 +6,8 @@ export const projects = [
     category: "Online Sportwear Products",
     type: "Website",
     launchUrl: "https://www.adidas.co.in/",
-    image: "https://seatechconsulting.com/Images/Project/adidas/adidas-image.png",
-    icon: "https://seatechconsulting.com/Images/Project/adidas/adidas-logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/Project/adidas/adidas-image.png",
+    icon: "https://seatechconsulting.netlify.app/Images/Project/adidas/adidas-logo.png",
     stack: ["#HTML5", "#CSS3", "#JavaScript"],
     summary:
       `Embark on a digital adventure with Adidas, a global powerhouse known for redefining the boundaries of footwear and apparel. In the vast landscape of online shopping, Adidas acknowledged the pivotal need to ensure a seamless and delightful experience for users.
@@ -28,8 +28,8 @@ Adidas takes immense pride in achieving more than just a seamless online orderin
     category: "Custom Jewelry Marketplace",
     type: "Website",
     launchUrl: "https://www.fullestop.com/pdf/caradiamonds-casestudy.pdf",
-    image: "https://seatechconsulting.com/Images/Project/cara/caradiamond-image.png",
-    icon: "https://seatechconsulting.com/Images/Project/cara/caradiamond-logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/Project/cara/caradiamond-image.png",
+    icon: "https://seatechconsulting.netlify.app/Images/Project/cara/caradiamond-logo.png",
     stack: ["#HTML", "#CSS", "#JavaScript", "#Magento", "#MySQL"],
     summary:
       `In the realm of authentic diamonds and bespoke jewelry, Cara Diamonds stands as a symbol of individuality, offering an experience that transcends the ordinary act of purchasing jewelry. Crafting this unique experience had its intricacies.
@@ -52,8 +52,8 @@ Discover the artistry of personalized jewelry with Cara Diamonds—where every p
     category: "Online Ecommerce store",
     type: "Website",
     launchUrl: "https://www.fullestop.com/pdf/caradiamonds-casestudy.pdf",
-    image: "https://seatechconsulting.com/Images/Project/fair/fairandhandsome-image.png",
-    icon: "https://seatechconsulting.com/Images/Project/fair/fairandhandsome-logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/Project/fair/fairandhandsome-image.png",
+    icon: "https://seatechconsulting.netlify.app/Images/Project/fair/fairandhandsome-logo.png",
     stack: ["#HTML", "#CSS", "#JavaScript"],
     summary:
       `In 2005, Fair And Handsome made a significant impact on the skincare landscape by introducing the first-ever cream exclusively crafted for men, ushering in a new era in Men’s Grooming beyond conventional shaving routines. This milestone was achieved through meticulous research, understanding the distinct needs of men's skin compared to women's.
@@ -70,8 +70,8 @@ With endorsements from iconic celebrities like Shahrukh Khan, Hrithik Roshan, Vi
     category: "Global Education Hub",
     type: "Website",
     launchUrl: "https://www.ukieri.org/",
-    image: "https://seatechconsulting.com/Images/Project/ukieri/ukieri-image.png",
-    icon: "https://seatechconsulting.com/Images/Project/ukieri/ukieri-logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/Project/ukieri/ukieri-image.png",
+    icon: "https://seatechconsulting.netlify.app/Images/Project/ukieri/ukieri-logo.png",
     stack: ["#Mongo DB", "#Angular 5", "#JavaScript", "#Nodejs"],
     summary:
       `Explore collaborative education with UKIERI's secure platform at www.ukieri.org. UK-India Education and Research Initiative (UKIERI) started in April 2006 with the aim of enhancing educational linkages between India and the UK. Elevate your learning experience through visually appealing and user-friendly features, ensuring the safety of sensitive information. The project focuses on three areas capacity building and leadership development, research innovation and partnerships, and Skill development in higher education.
@@ -84,8 +84,8 @@ Engage with Higher Education Leadership Development, SPARC Webinars, DST Partner
     category: "Online Automotive Platform",
     type: "Website",
     launchUrl: "https://www.volkswagen.ie/en.html",
-    image: "https://seatechconsulting.com/Images/Project/volkswagen/volkswagen-image.png",
-    icon: "https://seatechconsulting.com/Images/Project/volkswagen/volkswagen-logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/Project/volkswagen/volkswagen-image.png",
+    icon: "https://seatechconsulting.netlify.app/Images/Project/volkswagen/volkswagen-logo.png",
     stack: ["#MySQL", "#HTML 5", "#JavaScript"],
     summary:
       `Step into the world of Volkswagen, where the journey—from exploration to ownership—is met with innovation and commitment. The dedication to providing customers with a seamless online experience reflects a responsive approach, creating a user-friendly portal tailored to your needs.

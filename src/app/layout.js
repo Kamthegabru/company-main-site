@@ -67,8 +67,8 @@ export default function RootLayout({ children }) {
     "@type": "ProfessionalService",
     name: "SeaTech Consulting",
     url: "https://seatechconsulting.com",
-    logo: "https://seatechconsulting.com/Images/logo.png",
-    image: "https://seatechconsulting.com/Images/logo.png",
+    logo: "https://seatechconsulting.netlify.app/Images/logo.png",
+    image: "https://seatechconsulting.netlify.app/Images/logo.png",
     telephone: "+1-206-571-7659",
     email: "info@seatechconsulting.com",
     address: {

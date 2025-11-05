@@ -101,7 +101,7 @@ export default function HeroHeader() {
             {/* Logo */}
             <Link href="/" className="flex w-[70px] sm:w-[100px] select-none items-center">
               <img
-                src="https://seatechconsulting.com/Images/logo.png"
+                src="https://seatechconsulting.netlify.app/Images/logo.png"
                 alt="SeaTech Consulting"
                 className="h-auto w-full"
               />
@@ -332,7 +332,7 @@ export default function HeroHeader() {
             <div className="flex items-center justify-between px-5 py-4 border-b">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
                 <img
-                  src="https://seatechconsulting.com/Images/logo.png"
+                  src="https://seatechconsulting.netlify.app/Images/logo.png"
                   alt="SeaTech Consulting"
                   className="h-8 w-auto"
                 />

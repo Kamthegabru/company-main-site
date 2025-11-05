@@ -18,7 +18,7 @@ export default function Footer(){
             <div className="col-span-12 lg:col-span-7">
               <div className="footer-widget logo-widget">
                <a href="./" className="flex items-center w-[120px] gap-3 select-none cursor-pointer">
-       <img src="https://seatechconsulting.com/Images/logo.png"/>
+       <img src="https://seatechconsulting.netlify.app/Images/logo.png"/>
       </a>
                 <p className="footer-text mt-4">
                   We are the best world Information Technology Company. Providing the highest
