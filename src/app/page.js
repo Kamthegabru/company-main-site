@@ -728,7 +728,7 @@ export default function Home() {
               </div>
 
               {/* arrow with micro-motion */}
-              <button
+              {/* <button
                 className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:gap-2 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-slate-900"
                 type="button"
               >
@@ -736,7 +736,7 @@ export default function Home() {
                 <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
-              </button>
+              </button> */}
             </div>
 
             {/* sheen on hover */}
