@@ -270,8 +270,12 @@ function LearnMoreModal({ open, onClose, techKey }) {
               </div>
             </div>
             <button
-              onClick={onClose}
-              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow hover:bg-white"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClose();
+              }}
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow hover:bg-white transition-colors z-20"
             >
               <X className="h-5 w-5" />
             </button>

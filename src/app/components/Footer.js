@@ -68,13 +68,13 @@ export default function Footer(){
               <div className="footer-widget links-widget">
                 <h5>Quick Links</h5>
                 <ul className="list-link">
-                  <li><a href="#">Managed IT services</a></li>
-                  <li><a href="#">Cloud Services</a></li>
-                  <li><a href="#">IT support &amp; helpdesk</a></li>
-                  <li><a href="#">Cyber security</a></li>
-                  <li><a href="#">Custom Software</a></li>
-                  <li><a href="#">Free Consultation</a></li>
-                  <li><a href="#">Our Business Growth</a></li>
+                  <li><a href="/ITconsultation">Managed IT services</a></li>
+                  <li><a href="/ITconsultation">Cloud Services</a></li>
+                  <li><a href="/ITconsultation">IT support &amp; helpdesk</a></li>
+                  <li><a href="/ITconsultation">Cyber security</a></li>
+                  <li><a href="/web-development">Custom Software</a></li>
+                  <li><a href="/contact">Free Consultation</a></li>
+                  <li><a href="#about">Our Business Growth</a></li>
                 </ul>
               </div>
             </div>
@@ -143,7 +143,7 @@ Portland, OR 97210
           <ul className="footer-nav justify-center md:justify-end">
             <li><a href="#about">About Us</a></li>
             <li><a href="#what">Services</a></li>
-            <li><a href="/privacy-policy">Privay</a></li>
+            <li><a href="/privacy-policy">Privacy</a></li>
           </ul>
         </div>
       </div>

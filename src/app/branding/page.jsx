@@ -196,7 +196,7 @@ export default function WhatWeBrandingPage() {
                 Explore our work <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15"
               >
                 Get a proposal

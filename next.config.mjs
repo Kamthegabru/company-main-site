@@ -24,6 +24,9 @@ const nextConfig = {
       // Pexels (network images)
       { protocol: "https", hostname: "images.pexels.com", pathname: "/photos/**" },
 
+      // Unsplash (stock images)
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+
       // Simple Icons (SVG tech logos like Laravel, React, etc.)
       { protocol: "https", hostname: "cdn.simpleicons.org", pathname: "/**" },
 

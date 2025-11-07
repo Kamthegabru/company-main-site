@@ -19,6 +19,7 @@ export default function HeroHeader() {
   const [openCompanies, setOpenCompanies] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
   const [openWhat, setOpenWhat] = useState(false);
+  const [openWhatDesktop, setOpenWhatDesktop] = useState(false);
   const panelRef = useRef(null);
   const closeBtnRef = useRef(null);
   const pathname = usePathname();
@@ -30,6 +31,7 @@ export default function HeroHeader() {
     setOpenCompanies(false);
     setOpenProjects(false);
     setOpenWhat(false);
+    setOpenWhatDesktop(false);
   }, [pathname]);
 
   // Close menu if viewport jumps to desktop while open
@@ -121,7 +123,7 @@ export default function HeroHeader() {
 
                 <li>
                   <Link
-                    href="#about"
+                    href="/#about"
                     className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F]"
                   >
                     ABOUT
@@ -232,15 +234,17 @@ export default function HeroHeader() {
                 </li>
 
                 {/* WHAT WE DO (desktop dropdown) */}
-                <li className="relative group">
+                <li className="relative">
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors group-hover:text-[#0B4D8F] focus:outline-none"
-                    aria-expanded="false"
+                    onMouseEnter={() => setOpenWhatDesktop(true)}
+                    onMouseLeave={() => setOpenWhatDesktop(false)}
+                    className="inline-flex items-center gap-1 px-2 py-5 text-[#0A2C4A]/80 transition-colors hover:text-[#0B4D8F] focus:outline-none"
+                    aria-expanded={openWhatDesktop}
                   >
                     WHAT WE DO
                     <svg
-                      className="ml-1 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+                      className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${openWhatDesktop ? 'rotate-180' : ''}`}
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -249,13 +253,13 @@ export default function HeroHeader() {
                   </button>
 
                   <div
-                    className="
+                    onMouseEnter={() => setOpenWhatDesktop(true)}
+                    onMouseLeave={() => setOpenWhatDesktop(false)}
+                    className={`
                       absolute left-1/2 top-full -translate-x-1/2 w-[300px] pt-4
-                      opacity-0 invisible pointer-events-none
-                      group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
-                      focus-within:opacity-100 focus-within:visible focus-within:pointer-events-auto
                       transition-all duration-200
-                    "
+                      ${openWhatDesktop ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}
+                    `}
                   >
                     <div className="rounded-xl border border-gray-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
                       <div className="h-[3px] w-full rounded-t-xl bg-[#0B4D8F]" />
@@ -368,7 +372,7 @@ export default function HeroHeader() {
 
                 <li>
                   <Link
-                    href="#about"
+                    href="/#about"
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-[#0A2C4A]/90 hover:bg-gray-50"
                   >

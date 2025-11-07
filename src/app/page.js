@@ -286,7 +286,7 @@ export default function Home() {
       </div>
 
       {/* Card body */}
-      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80">
+      <div className="relative h-full rounded-2xl bg-white/90 px-7 pb-7 pt-8 shadow-[0_10px_30px_rgba(10,44,74,0.06)] backdrop-blur-sm transition-all duration-300 dark:bg-slate-900/80 z-10">
         {/* Top row */}
         <div className="flex items-start justify-between">
           {/* Icon bubble */}
@@ -306,14 +306,18 @@ export default function Home() {
 
         {/* Title */}
         <h3 className="mt-5 text-lg font-semibold text-[#0B4D8F] dark:text-sky-200">
-          <a href="/ITconsultation" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+          <Link 
+            href="/ITconsultation" 
+            className="inline-flex items-center gap-2 hover:underline underline-offset-4"
+            onClick={() => console.log('IT Solutions link clicked')}
+          >
             IT Solutions
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </span>
-          </a>
+          </Link>
         </h3>
 
         {/* Copy */}
@@ -324,16 +328,17 @@ export default function Home() {
 
         {/* Footer: CTAs */}
         <div className="mt-6 flex items-center justify-between">
-          <a
+          <Link
             href="/ITconsultation"
             className="inline-flex items-center cursor-pointer gap-2 rounded-lg px-3 py-2 text-[10px] font-semibold text-[#0A2C4A] ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:ring-slate-300 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
             aria-label="Read more about IT Solutions"
+            onClick={() => console.log('Learn more button clicked')}
           >
             Learn more
             <svg width="16" height="16" viewBox="0 0 24 24" className="transition-transform group-hover:translate-x-0.5">
               <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" />
             </svg>
-          </a>
+          </Link>
 
           <div className="flex -space-x-2">
             <span className="rounded-full bg-sky-100 px-2 py-1 text-[11px] font-medium text-sky-800 ring-1 ring-sky-200 dark:bg-sky-900/40 dark:text-sky-200 dark:ring-sky-800">
@@ -346,8 +351,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hover lift */}
-      <div className="absolute inset-0 rounded-2xl transition-transform duration-300 group-hover:-translate-y-0.5" />
+
     </article>
 
     {/* CARD: Security System */}
@@ -589,6 +593,7 @@ export default function Home() {
       ),
       badge: "Pro",
       delay: "reveal-delay-1",
+      link: "/web-development",
     },
     {
       title: "Mobile Development",
@@ -603,6 +608,7 @@ export default function Home() {
       ),
       badge: "Native",
       delay: "reveal-delay-2",
+      link: "/mobile-development",
     },
     {
       title: "Branding & Identity",
@@ -616,6 +622,7 @@ export default function Home() {
       ),
       badge: "Studio",
       delay: "reveal-delay-3",
+      link: "/digital-branding",
     },
     {
       title: "Digital Marketing",
@@ -629,6 +636,7 @@ export default function Home() {
       ),
       badge: "Growth",
       delay: "reveal-delay-1",
+      link: "/digital-branding",
     },
     {
       title: "IT Consultancy",
@@ -642,6 +650,7 @@ export default function Home() {
       ),
       badge: "Ops",
       delay: "reveal-delay-2",
+      link: "/ITconsultation",
     },
     {
       title: "Dedicated Team",
@@ -656,6 +665,7 @@ export default function Home() {
       ),
       badge: "Elite",
       delay: "reveal-delay-3",
+      link: "#team",
     },
   ].reduce((rows, item, idx, arr) => {
     if (idx % 3 === 0) rows.push(arr.slice(idx, idx + 3));
@@ -727,19 +737,17 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* arrow with micro-motion */}
-              {/* <button
+              <Link
+                href={card.link}
                 className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:gap-2 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-slate-900"
-                type="button"
               >
                 Explore
                 <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
-              </button> */}
+              </Link>
             </div>
 
-            {/* sheen on hover */}
             <div className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
           </div>
         </article>
@@ -758,6 +766,7 @@ export default function Home() {
 
 
 <section
+      id="team"
       className="relative bg-cover bg-center"
       style={{
         backgroundImage:
